@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>公主</title>
+		<style type="text/css">
+    	#text{height:280px;color:#FFFFFF; font-size:40px;margin-left: 300px;margin-right: 300px;font-family: KaiTi;}
+   		</style>
+	</head>
+	<body background="img/princess_back.jpg"
+	style="background-size:100%;
+	background-attachment: fixed;">
+	<p id="text"></p>    
+<script>        
+    var i=0;
+    var str="唐朝的传说故事提到很多以马著称的国家，例如有一个终年积雪的极北之地被称为“驳马国”，据说那里的马通人性，但那已是过去的事。此后吐蕃人多次劫掠皇家牧场，损失的良驹无法得到补给。如今唐朝军队不得不依赖回鹘人为他们提供至关重要的战马，每匹售价高达四十甚至五十匹丝绸，唐朝如果拒付高价,则可能会遭到回鹘人的劫掠。773年，回鹘人要求唐朝买下一万匹马，总价超过唐朝一年的赋税，唐朝皇帝试图压低回鹘人的勒索金额，下旨说“不欲重困于民”，仅买了六千匹马。但是回鹘人仍定期送来成千上万的马匹，唐朝国库逐渐被榨干。";            
+    window.onload=function typing(){
+                //获取div
+        var mydiv=document.getElementById("text");
+        mydiv.innerHTML+=str.charAt(i);
+        i++;
+        var id=setTimeout(typing,80);
+        if(i==str.length){
+            clearTimeout(id);
+            mydiv.parentNode.removeChild(mydiv);//清空文字
+            }
+        }
+    
+</script>
+	</body>
+</html>
