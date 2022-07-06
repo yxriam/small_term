@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>寡妇——我的人生过得并不差，只是没有很好</title>
+		<style type="text/css">
+    	#text{height:280px;color:#FFFFFF; font-size:35px;font-family: KaiTi;line-height: 150%;}
+		#back{background-color:#ffc380;margin-left: 20%;margin-right: 20%;height:600px;border-radius: 10px;opacity: 0.7;}
+		#widow{position:fixed;visibility: hidden;}
+		#music1{margin-left: 40%;}
+		#music2{margin-left:40%;}
+		#button1{background:#ffc380;border: 0;width:100px;height:100px;border-radius: 50%;position: absolute;left:200px;top:800px;outline: none;cursor: pointer;color: #fff;transition: 0.3s linear;font-family: KaiTi;font-size: x-large;}
+		</style>
+	</head>
+	<body background="img/widow_back.gif"
+	style="background-size:100%;
+	background-attachment: fixed;">
+	<div id="back">
+		<p id="text"></p>
+	</div>
+	<img src="img/widow.png" id="widow">
+	<audio controls="controls" height="120" width="100" id="music1">
+  		<source src="radio/princess1.m4a" type="audio/mp3" />
+		<embed height="100" width="100" src="song.mp3" />
+	</audio>
+	<audio controls="controls" height="120" width="100" id="music2">
+  		<source src="radio/princess2.mp3" type="audio/mp3" />
+		<embed height="100" width="100" src="song.mp3" />
+	</audio>
+    <a href="catalog.html"><button type="button"id="button1">返回<br/>目录</button></a>
+<script>        
+    var i=0;
+    var str1="阿龙是一名出众的女孩子。她的父母讲汉语，但实际上两人都是混血儿，祖上有好几代人都来自丝路上的不同民族。阿龙身上流着汉人、吐蕃人及突厥人的血，但她自己并不知道这一点。她的乌发碧眼在敦煌不罕见，但人们仍对她的美貌交口称赞。阿龙十七岁成婚。她与未婚夫在过节时见过几面，在这之后不久，她的伯母便联络男方父母，询问他们是否有意结亲，然后他们聘了一位媒人来安排相关事宜。男方在城北有一小块土地，临近烽火台与废弃的唐朝戍堡。不过他们的主要收入来自房产一一他们在城里有几处房产，已经对外出租了。";            
+    var str2="生产后 阿龙因失血而非常虚弱，她尝试自己哺乳，但并不成功。之后生的几个孩子也活不了几天便夭折了。每次流产或是孩子早夭，她和丈夫都回到当地的佛寺，付钱请僧人为亡子超度。阿龙夫妇生活日渐富足，成婚几年后，公婆相继离世，留下了所有的财产。"
+    window.onload=function typing(){
+                //获取div
+        var mydiv=document.getElementById("text");
+        var backele=document.getElementById("back");
+        var widow=document.getElementById("widow");
+        mydiv.innerHTML+=str1.charAt(i);
+        i++;
+        var id=setTimeout(typing,200);
+        if(i==str1.length){
+            mydiv.innerHTML="";//清空文字
+            }
+        if(i>=str1.length)
+        	mydiv.innerHTML+=str2.charAt(i-str1.length);
+        	if(i==(str1.length+str2.length))
+        	{
+        		clearTimeout(id);
+        		mydiv.parentNode.removeChild(mydiv);
+        		backele.parentNode.removeChild(backele);
+        		widow.style.visibility="visible";
+        	}
+      }
+    
+</script>
+	</body>
+</html>
