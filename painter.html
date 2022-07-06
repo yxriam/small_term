@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>画师画作誉满敦煌</title>
+		<style type="text/css">
+    	#text{height:280px;color:#FFFFFF; font-size:25px;font-family: KaiTi;line-height: 35px;padding-left: 2%;padding-right: 2%;padding-top: 0.5%;}
+		#back{background-color:#adc1ccfe;margin-left: 20%;margin-right: 20%;height:600px;border-radius: 10px;opacity: 80%;}
+		#princess{position:fixed;visibility: hidden;}
+		#title{color:#FFFFFF; font-size:45px;font-family: KaiTi;text-align: center;}
+		#button1{background:#7f93ae;border: 0;width:100px;height:100px;border-radius: 50%;position: absolute;left:200px;top:800px;outline: none;cursor: pointer;color: #fff;transition: 0.3s linear;font-family: KaiTi;font-size: x-large;}
+		</style>
+	</head>
+	<body background="img/painter_back.jpg"
+	style="background-size:100%;
+	background-attachment: fixed;">
+	<div id="back">
+		<p id="title">画师——落红不是无情物，化作春泥更护花<p/>
+		<p id="text"></p>
+	</div>
+	<img src="img/painter.png" id="princess">
+	<audio autoplay="autoplay" preload="auto" src="radio/princess.mp3"></audio>
+<script>        
+    var i=0;
+    var str1="907年唐朝灭亡后，敦煌的统治者仍时常向中原各个割据政权派遣使者，接受一个又一个君王赐予的封号。但无论怎样看，敦煌实际上都是一个独立的政权。这一情形在960年宋朝统一中原后仍保持不变。敦煌与于阗交好，使者往来于两地，于阗王室有时还会造访敦煌。于阗王室热衷礼佛，他们甚至捐资修建莫高窟。画院的一位画师把他们的画像绘在石窟壁面上，以纪念他们的功德。而高昌和甘州都在回鹘治下，这些回鹘人的祖上被黠戛斯人打败，被迫南迁至此。这些逃难的回鹘人，一部分先迁到天山北麓的别失八里，其后又越过天山到达吐鲁番盆地，定居高昌，但仍以别失八里为夏都。别失八里位于准噶尔盆地，牧草丰美，而且比地势较低的吐鲁番盆地更为凉爽。很多回鹘人都与当地人成婚并皈依了敦煌所推崇的佛教。表面看来，敦煌与回鹘关系友好，但实际上双方多有龃龉。";            
+    var str2="]你名为董保德，是一名大画家，掌管敦煌当地画行，除此之外你还是朝廷画院的一员。时值965年，敦煌名义上归附新生政权宋朝，但实际上的掌控者则是从920年起就在当地的曹氏家族。现任统治者曹元忠自称大王，是你的资助人。曹元忠经常会命人制作一些绘画作品，作品除了有随身携带的绢画，还有当地石窟寺的壁画。人们纷纷仿效曹大王的做法请人作画，像你这样的专业画师相当繁忙。几年前你就成了顶尖的画师，如今生活无忧，还拥有官衔。尽管品阶不高，但仍提升了你在本地的社会地位。你的职务中当然有不如意的地方，比如需要与官僚和懒散的工人打交道，不过你技艺娴熟，报酬丰厚，工作机会源源不断。敦煌附近有超过十五座寺院，其中最重要的莫高窟是位于城东南约十九公里处的一座石窟寺。你被任命去那主理绘画事务。"
+    var mydiv=document.getElementById("text");
+    var backele=document.getElementById("back");
+    var princess=document.getElementById("princess");
+    window.onload=function typing(){
+                //获取div
+        mydiv.innerHTML+=str1.charAt(i);
+        i++;
+        var id=setTimeout(typing,200);
+        if(i==str1.length){
+            mydiv.innerHTML="";//清空文字
+            }
+        else if(i>=str1.length)
+        	mydiv.innerHTML+=str2.charAt(i-str1.length);
+        	if(i==(str1.length+str2.length))
+        	{
+        		clearTimeout(id);
+        		mydiv.parentNode.removeChild(mydiv);
+        		backele.parentNode.removeChild(backele);
+        		princess.style.visibility="visible";
+        	}
+      }
+    
+</script>
+	</body>
+</html>

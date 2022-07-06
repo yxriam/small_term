@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>吐蕃士兵讲述往事</title>
+		<style type="text/css">
+    	#text{height:280px;color:#FFFFFF; font-size:25px;font-family: KaiTi;line-height: 35px;padding-left: 2%;padding-right: 2%;padding-top: 0.5%;}
+		#back{background-color:#ebac75fe;margin-left: 20%;margin-right: 20%;height:600px;border-radius: 10px;opacity: 80%;}
+		#princess{position:fixed;visibility: hidden;}
+		#title{color:#FFFFFF; font-size:45px;font-family: KaiTi;text-align: center;}
+		#button1{background:#7f93ae;border: 0;width:100px;height:100px;border-radius: 50%;position: absolute;left:200px;top:800px;outline: none;cursor: pointer;color: #fff;transition: 0.3s linear;font-family: KaiTi;font-size: x-large;}
+		</style>
+	</head>
+	<body background="img/soldier_back.jpg"
+	style="background-size:100%;
+	background-attachment: fixed;">
+	<div id="back">
+		<p id="title">士兵——今我来思，雨雪霏霏<p/>
+		<p id="text"></p>
+	</div>
+	<img src="img/soldier.png" id="princess">
+	<audio autoplay="autoplay" preload="auto" src="radio/princess.mp3"></audio>
+<script>        
+    var i=0;
+    var str1="吐蕃王朝的建立者也来自吐蕃南部。6世纪末到7世纪初，这一带的领主们取得了一系列战争的胜利，他们击败了吐蕃北部和西部的游牧民族，人们将其称之为“南方之竹战胜北方牦牛”，此后，他们便在山地上建立起庞大的吐蕃王朝。608年，隋朝和吐蕃建交，但吐蕃的统治者直到十年后才完成政权的巩固，至633年才定都逻些。此后，吐蕃赞普将注意力转向邻国，尤其是唐朝，在接下来的一整个世纪，双方既有外交互动，也有沙场争斗。吐蕃赞普需要一支强大的军队来支持他的外交活动，并协助他解决内忧外患。对赛格拉顿和其他吐蕃人来说，服军役是一项义务。吐蕃军队十分庞大，除了可服役的成年男性以外，他们还从其他吐蕃占领地中招募士兵，这些领地包括青海湖畔的吐谷浑王国、丝路北线的印欧人城邦龟兹、帕米尔山区的瓦罕人王国和西边的小勃律。早期的战争令吐蕃人损失惨痛，数以万计的吐蕃士兵在和唐朝的交战中牺牲，直到近几年，吐蕃才夺得了丝绸之路的控制权。。";            
+    var str2="]你叫赛格拉顿，是一名吐蕃士兵。你驻守在塔里木南缘的城镇米兰附近的戍堡内，你的家乡远在千里之外。在过去的二十多年里，你的同胞从唐朝手中夺下米兰等多个城镇和要塞。现在，吐蕃控制了唐朝和粟特之间的要道，切断了撒马尔罕和长安之间的贸易活动和外交来往，使唐朝失去了一个财富源泉及权力保障。当时一些商人设法从天山北部穿过这一带，但那里是回鹘的控制区，商人为了安全通过不得不支付过路费。大多数人没有尝试走这条路线，连经验老到的旅行家和商人诺槃陀，也只能待在撒马尔罕附近一带进行贸易。751年，是你最后一次去长安……时值收获季节，驻扎在米兰的吐蕃军营正忙着储粮，为过冬或可能与回鹘的交战做准备。当地农民将一部分收成上交军队，作为回报，军队为他们提供保护、劳力，并借给他们牲畜和工具。有时候，军营也会额外收到从吐蕃运来的大麦和牲口。军营的指挥官派遣下属去核检粮食储备，清点和记录存粮。你作为小队长和老兵，和其他士兵共同肩负这个任务。"
+    var mydiv=document.getElementById("text");
+    var backele=document.getElementById("back");
+    var princess=document.getElementById("princess");
+    window.onload=function typing(){
+                //获取div
+        mydiv.innerHTML+=str1.charAt(i);
+        i++;
+        var id=setTimeout(typing,200);
+        if(i==str1.length){
+            mydiv.innerHTML="";//清空文字
+            }
+        else if(i>=str1.length)
+        	mydiv.innerHTML+=str2.charAt(i-str1.length);
+        	if(i==(str1.length+str2.length))
+        	{
+        		clearTimeout(id);
+        		mydiv.parentNode.removeChild(mydiv);
+        		backele.parentNode.removeChild(backele);
+        		princess.style.visibility="visible";
+        	}
+      }
+    
+</script>
+	</body>
+</html>

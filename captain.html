@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>船长——我将回到故乡的海底</title>
+		<style type="text/css">
+    	#text{height:280px;color:#FFFFFF; font-size:25px;font-family: KaiTi;line-height: 35px;padding-left: 2%;padding-right: 2%;padding-top: 0.5%;}
+		#back{background-color:#216287;margin-left: 20%;margin-right: 20%;height:600px;border-radius: 10px;opacity: 60%;}
+		#princess{position:fixed;visibility: hidden;}
+		#title{color:#FFFFFF; font-size:45px;font-family: KaiTi;text-align: center;}
+		#button1{background:#7f93ae;border: 0;width:100px;height:100px;border-radius: 50%;position: absolute;left:200px;top:800px;outline: none;cursor: pointer;color: #fff;transition: 0.3s linear;font-family: KaiTi;font-size: x-large;}
+		</style>
+	</head>
+	<body background="img/captain_back.gif"
+	style="background-size:100%;
+	background-attachment: fixed;">
+	<div id="back">
+		<p id="title">船长——我将回到故乡的海底<p/>
+		<p id="text"></p>
+	</div>
+	<img src="img/captain.png" id="princess">
+	<audio autoplay="autoplay" preload="auto" src="radio/captain.mp3"></audio>
+<script>        
+    var i=0;
+    var str1="巴尔巴里港在位于印度河三角洲的信德， 几个世纪以来这里都是西方货物的主要入口。早年，贵霜王朝几个世纪搜罗到的玻璃等器物就是由商人从港口带来的，他们沿着印度河的河谷到悬度， 再转向西北，沿印度河支流一路走到贵霜都城。阿克苏姆铸造的钱币也通过各种途径进入中亚各国。麝香、蓖麻、甘松、宝石等货物，经中亚的陆上丝绸之路从北部传来，其中很多都是由贵霜和粟特商人供应的。贵霜王朝衰落后，粟特商人掌握了贸易的主导权。";            
+    var str2="塔泽纳拥有好几艘船，这么多年来他大多数时候都换着不同的船来出行。当趁着西北季风返航时，他几乎没有时间到阿克苏姆去探望家人。回家一趟意味着要朝西南方航行八到十天。他是一名基督徒，和大多数乡民一样，常常会在阿杜利斯的教堂驻足，感谢主护佑他安全返航并为他的家人祈祷"
+    var mydiv=document.getElementById("text");
+    var backele=document.getElementById("back");
+    var princess=document.getElementById("princess");
+    window.onload=function typing(){
+                //获取div
+        mydiv.innerHTML+=str1.charAt(i);
+        i++;
+        var id=setTimeout(typing,200);
+        if(i==str1.length){
+            mydiv.innerHTML="";//清空文字
+            }
+        else if(i>=str1.length)
+        	mydiv.innerHTML+=str2.charAt(i-str1.length);
+        	if(i==(str1.length+str2.length))
+        	{
+        		clearTimeout(id);
+        		mydiv.parentNode.removeChild(mydiv);
+        		backele.parentNode.removeChild(backele);
+        		princess.style.visibility="visible";
+        	}
+      }
+    
+</script>
+	</body>
+</html>

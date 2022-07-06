@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商人——我心向着长安的集市</title>
+		<style type="text/css">
+    	#text{height:280px;color:#FFFFFF; font-size:25px;font-family: KaiTi;line-height: 35px;padding-left: 2%;padding-right: 2%;padding-top: 0.5%;}
+		#back{background:linear-gradient(180deg,#edcbb7,#48649b);margin-left: 20%;margin-right: 20%;height:600px;border-radius: 10px;opacity: 80%;}
+		#princess{position:fixed;visibility: hidden;}
+		#title{color:#FFFFFF; font-size:45px;font-family: KaiTi;text-align: center;}
+		#button1{background:#7f93ae;border: 0;width:100px;height:100px;border-radius: 50%;position: absolute;left:200px;top:800px;outline: none;cursor: pointer;color: #fff;transition: 0.3s linear;font-family: KaiTi;font-size: x-large;}
+		</style>
+	</head>
+	<body background="img/bussinessman_back.gif"
+	style="background-size:100%;
+	background-attachment: fixed;">
+	<div id="back">
+		<p id="title">商人——我心向着长安的集市<p/>
+		<p id="text"></p>
+	</div>
+	<img src="img/bussinessman.png" id="princess">
+	<audio autoplay="autoplay" preload="auto" src="radio/bussinessman.mp3"></audio>
+<script>        
+    var i=0;
+    var str1="诺槃陀的家族来自片治肯特，东距撒马尔罕约六十五公里，是一个被称作粟特的地区。西来的阿拉伯军队称粟特为“外乌浒水之地”或河中地区。 片治肯特地处粟特东缘，位于泽拉夫尚河谷地，在从帕米尔山脉向东延伸出来的两山之间。片治肯特城建在一座小山上，与其他粟特城市一样，片治肯特也建有坚固的防御城墙，城西部的山坡向下延伸至泽拉夫尚河，从城的东南方眺望过去，便是帕米尔白雪皑皑的山峰。";            
+    var str2="]诺槃陀是一名摩尼教徒， 即公元3世纪巴比伦先知摩尼的信徒，但他并未严格遵循禁酒的戒律。摩尼教徒曾在粟特地区发展成为一个势力强大的教团，与巴比伦的母堂分庭抗礼。随后，他们把满腔的传教热情投向了更远的东方。最初将摩尼教信仰引人河中地区的是摩尼使徒末阿莫，称自己为“真正纯洁者”，粟特信众尊奉他为教派鼻祖。公元8世纪，摩尼教东方教区的中心位于塔里木北部的高昌，从撒马尔罕到长安的路上，摩尼教寺院比比皆是。教团的分裂状态也结束于8世纪，东方教区的信徒们承认了巴比伦教团首领米尔的管辖权。"
+    var mydiv=document.getElementById("text");
+    var backele=document.getElementById("back");
+    var princess=document.getElementById("princess");
+    window.onload=function typing(){
+                //获取div
+        mydiv.innerHTML+=str1.charAt(i);
+        i++;
+        var id=setTimeout(typing,200);
+        if(i==str1.length){
+            mydiv.innerHTML="";//清空文字
+            }
+        else if(i>=str1.length)
+        	mydiv.innerHTML+=str2.charAt(i-str1.length);
+        	if(i==(str1.length+str2.length))
+        	{
+        		clearTimeout(id);
+        		mydiv.parentNode.removeChild(mydiv);
+        		backele.parentNode.removeChild(backele);
+        		princess.style.visibility="visible";
+        	}
+      }
+    
+</script>
+	</body>
+</html>
