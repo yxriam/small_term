@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寡妇日记</title>
+    <link rel="stylesheet" href="../css/story.css">
+</head>
+<body>
+     <div class="timeline-container" id="timeline-1">
+  <div class="timeline-header">
+    <h2 class="timeline-header-title">寡妇手札</h2>
+    <h3 class="timeline-header-subtitle">时间线</h3>
+  </div>
+  
+    <div id="button_wrap">
+		<a href="catalog.html"><div id="button1">返回目录</div></a>
+		<a href="widow.html"><div id="button1">返回上一级</div></a>
+		<a href="interaction.html"><div id="button2">前进</div></a>
+	</div>
+	
+  <div class="timeline">
+    <div class="timeline-item" data-text="年龄">
+      <div class="timeline-content"><img src="../img/widow_community.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">50岁</h2>
+        <p class="timeline-content-desc">
+        	与敦煌的很多妇女一样，你加入了一个妇女社团，定期在尼寺的一栋小房子里集会。社员定期向社团捐献，所有成员的丧葬费均由社团资产来承担，这对与会女性来说十分重要，因为他们很多人都年老贫穷，社团也会举办法事，以免自己的社员沦落地狱。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="年龄">
+      <div class="timeline-content"><img src="../img/widow_wall.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">52岁</h2>
+        <p class="timeline-content-desc">
+        	一名男子骑马入城，冒充你40几年前被盗匪劫走的堂兄，他希望收回自己的土地，因为他没有其他办法谋生。官吏相信了他的故事，于是没有深究，就把土地指派给了他，还开具了家主证明，也是其合法拥有土地，这块土地正是你的荒田。你过得颇为舒适，之前卖掉部分田产的收入至今还没花完，虽然听到这个消息非常的惊讶，但不想招惹当地官府，于是决定的妹婿归来后再去向这个擅自占地者讨说法。
+
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="年龄">
+      <div class="timeline-content"><img src="../img/widow_fields.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">53岁</h2>
+        <p class="timeline-content-desc">
+        	几个月后你的妹婿返乡，但也拿这个男子没有办法。直到这个男子离开，麻烦也没有结束。你的一名在寺院长大，没有土地与财产的远房亲戚搬到这块土地，声称自己是那名男子的侄子，有权拥有这块地。
+        </p>
+      </div>
+    </div>
+  
+	<div class="timeline-item" data-text="年龄">
+      <div class="timeline-content"><img src="../img/widow_court.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">60岁</h2>
+        <p class="timeline-content-desc">
+        	在过去的十年里，年轻人一直拒绝交出土地，并且一粒收成都不愿意分给你，你的财产日益缩减，也愈发嗜赌，最后债台高筑。所幸你定期给社团捐献，丧葬费用有所着落。随着年纪增长，你的关节炎也开始发作，无法缝纫。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="年龄">
+      <div class="timeline-content"><img src="../img/widow_fields2.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">70岁</h2>
+        <p class="timeline-content-desc">
+        	眼看孙子将近成年，你和妹婿决定采取行动，夺回土地，否则你的孙子将一无所有，你还保留儿子被捕后与姨夫签订的契约，不过这是唯一的书面证据，并且早已过期，所幸官府看你年事已高，且没有其他的收入来源，且那个远亲没有分给你任何土地上的收入，于是将土地和水源判给了你。你剩下的日子终于有了保障，实际上，比起其他数以万计，靠耕种塔里木一带“苦地”过活的农民，你的人生并不差，只是也没有过得很好。
+        </p>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ <script>
+    
+    (function($) {
+  $.fn.timeline = function() {
+    var selectors = {
+      id: $(this),
+      item: $(this).find(".timeline-item"),
+      activeClass: "timeline-item-active",
+      img: ".timeline-img"
+    };
+    selectors.item.eq(0).addClass(selectors.activeClass);
+    selectors.id.css(
+      "background-image",
+      "url(" +
+        selectors.item
+          .first()
+          .find(selectors.img)
+          .attr("src") +
+        ")"
+    );
+    var itemLength = selectors.item.length;
+    $(window).scroll(function() {
+      var max, min;
+      var pos = $(this).scrollTop();
+      selectors.item.each(function(i) {
+        min = $(this).offset().top;
+        max = $(this).height() + $(this).offset().top;
+        var that = $(this);
+        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+          selectors.item.removeClass(selectors.activeClass);
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              selectors.item
+                .last()
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.last().addClass(selectors.activeClass);
+        } else if (pos <= max - 40 && pos >= min) {
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              $(this)
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.removeClass(selectors.activeClass);
+          $(this).addClass(selectors.activeClass);
+        }
+      });
+    });
+  };
+})(jQuery);
+$("#timeline-1").timeline();
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>名妓——我不提叛乱，但无法忘怀长安的那一夜</title>
+		<style type="text/css">
+    #text{height:280px;color:#FFFFFF; font-size:25px;font-family: KaiTi;line-height: 35px;padding-left: 2%;padding-right: 2%;padding-top: 0.5%;}
+		#back{background-color:#e98055;margin-left: 20%;margin-right: 20%;height:600px;border-radius: 10px;opacity: 80%;}
+		#person{position:fixed;visibility: hidden;top: 82px;left: 0px;}
+		#title{color:#FFFFFF; font-size:45px;font-family: KaiTi;text-align: center;}
+		#button1{background:#e98055;border: 0;width:120px;height:60px;border-radius: 5px;color: #fff;transition: 0.3s linear;font-family: KaiTi;font-size:20px;text-align: center;line-height: 60px;}
+		#button1:hover{opacity: 0.5;}
+		#button2{background:#e98055;border: 0;width:120px;height:60px;border-radius: 5px;color: #fff;transition: 0.3s linear;font-family: KaiTi;font-size:20px;text-align: center;line-height: 60px;}
+		#button2:hover{opacity: 0.5;}
+		#button_wrap{left:85%;top:0;position:fixed}
+		.twinkle{position:fixed;visibility:hidden;top:25%;left:40%;width:1000px;animation: twinkle 1s infinite alternate;}
+        @keyframes twinkle {
+            0%{
+                opacity:0;
+            }
+            100%{
+                opacity:0.8;
+            }
+		a{text-decoration: none;}
+		</style>
+	</head>
+	<body background="../img/prostitute_back.gif"
+	style="background-size:100%;
+	background-attachment: fixed;">
+	<div id="back">
+		<p id="title">名妓<br/>——我不提叛乱，但无法忘怀长安的那一夜<p/>
+		<p id="text"></p>
+	</div>
+	<img src="../img/prostitute.png" id="person">
+	<audio  id="music" autoplay="autoplay" preload="auto" src="../audio/prostitude.mp3"></audio>
+	<div id="button_wrap">
+		<a href="catalog.html"><div id="button1">返回目录</div></a><div id="button2" onclick="jump()">跳过</div>
+	</div>
+	<a href="prostitude_story.html"><img src="../img/pavilion.png" class="twinkle" id="deer"></a>
+<script>        
+    var i=0;
+    var str1="你叫莱瑞诗卡，同祖母和母亲一样，你被训练为伶人。在你还是个半大的孩子时，便开始学习音乐、唱歌和舞蹈。你在弹奏上表现出极高的天赋，专攻龟兹琵琶的演奏。你在长安居住了将近二十载，有独立的套间、婢女和一只小狗，但你却从未以此为家。你的居处是属于鸨母的，你不过是食人之粟。你试图找到一个恩客可以赎她为妾，把你单独安雪在某个居所里，但这样的客人十分罕见。一些客人会继续赏识她的琵琶技艺，但更多客人会选择一走了之。你在妓院中逐渐老去，仅凭你的金发碧眼已没有足够的吸引力。每过一年， 你都要花费更长的时间化妆以粉饰岁月的痕迹。莱瑞诗卡在脸上扑粉，仔细地遮住眼周和嘴角的细纹。";            
+    var str2="]你对叛军再次进城攻打王师的那一天永生难忘。当士兵们破门而人，混乱中你分不清这是哪方的军队，直到后来才知道是叛军，不过哪一支军队对你来说都相差无几。将朝廷的军队被逐出城后，因城中民众起初曾欢迎王师入城，叛军决定惩罚你们，叛军首领命令部队“洗城”，就是血洗全城。";
+    var mydiv=document.getElementById("text");
+    var backele=document.getElementById("back");
+    var person=document.getElementById("person");
+    var deer=document.getElementById("deer");
+    window.onload=function typing(){
+                //获取div
+        mydiv.innerHTML+=str1.charAt(i);
+        i++;
+        var id=setTimeout(typing,200);
+        if(i==str1.length){
+            mydiv.innerHTML="";//清空文字
+            }
+        else if(i>=str1.length)
+        	mydiv.innerHTML+=str2.charAt(i-str1.length);
+        	if(i==(str1.length+str2.length))
+        	{
+        		clearTimeout(id);
+        		mydiv.parentNode.removeChild(mydiv);
+        		backele.parentNode.removeChild(backele);
+        		person.style.visibility="visible";
+        		deer.style.visibility="visible";
+        	}
+      }
+    
+</script>
+<script src="js/pixi.min.js"></script>
+<script language="JavaScript">
+	    var jumpele=document.getElementById("button2");
+	    var mydiv=document.getElementById("text");
+	    var backele=document.getElementById("back");
+    	var person=document.getElementById("person");
+    	var audio = document.getElementById("music");
+	    function jump(){//跳过函数
+	    		mydiv.parentNode.removeChild(mydiv);
+        		backele.parentNode.removeChild(backele);
+        		deer.style.visibility="visible";
+        		person.style.visibility="visible";//跳到人物出场
+        		music.pause();//暂停音乐
+	    }
+</script>
+	</body>
+</html>

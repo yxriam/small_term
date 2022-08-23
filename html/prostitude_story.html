@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名妓日记</title>
+    <link rel="stylesheet" href="../css/story.css">
+</head>
+<body>
+     <div class="timeline-container" id="timeline-1">
+  <div class="timeline-header">
+    <h2 class="timeline-header-title">名妓手札</h2>
+    <h3 class="timeline-header-subtitle">时间线</h3>
+  </div>
+  
+    <div id="button_wrap">
+		<a href="catalog.html"><div id="button1">返回目录</div></a>
+		<a href="prostitude.html"><div id="button1">返回上一级</div></a>
+		<a href="interaction.html"><div id="button2">前进</div></a>
+	</div>
+	
+  <div class="timeline">
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/prostitude_palace.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">847</h2>
+        <p class="timeline-content-desc">
+        	今年起便一直有要发生叛乱的风声，虽然都城的驻军本来是从富家子弟中选拔出来的，但他们的父亲为使儿子能免除军役，往往会花钱随便请人代替服役，甚至病弱之人只要自愿都可以上任。但人们依然盲目乐观。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/prostitude_war.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">880</h2>
+        <p class="timeline-content-desc">
+        	880年秋，城中盛一支叛军正从南边靠近都城。这些叛乱断断续续地发生，持续了数年。乱事不是渐弱而竭，便是被朝廷的军队镇压下去。每一次平叛都进一步榨取着几近枯竭的国库，随之而来的是税赋增加、民怨四起。被压榨殆尽的农民毅然加人叛军。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/prostitude_retreat.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">881</h2>
+        <p class="timeline-content-desc">
+        	叛军士兵很快便疲于劫掠，将领也重掌局面。881年5月，一切几乎恢复如常，妓女们为了应付城中士兵而尤为忙碌。正当百姓开始适应新政时，叛军却撤退离开了。唐朝王师重新集结西进，长安城再次被军队进犯，王师比叛军更漫无军纪，居民们再度紧闭门窗，以备最糟糕的情况发生。
+        </p>
+      </div>
+    </div>
+  
+	<div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/prostitude_clear.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">881</h2>
+        <p class="timeline-content-desc">
+        	叛军再次进城攻打王师那一天，你和其他女孩及佣人缩在楼上的房间，战鼓声、马蹄声、呼喊声和尖叫声愈发刺耳。女人们抱成一团，不敢去谈发生了什么。不断有拿着剑的男人闯进屋里，脸上都是血。鸨母与老仆们当场就被杀了，然后士兵们拉扯开相拥的女孩们，将她们摁在地毯上轮番奸淫。你让最小的女孩藏入柜橱，但士兵还是听到了小女孩的尖叫。看到一名士兵打开了橱门，你一口咬向身上的男人，男人吃痛把手抽开，你立即趁此时机扭身逃脱，飞身挡住了小女孩，暴怒的士兵挥剑向你砍去....当你醒过来时，只看到横在身侧的小女孩衣衫不整，遍体鳞伤，身首异处。士兵已经走了，你的同伴和小狗都死了。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/prostitude_brothel.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">882</h2>
+        <p class="timeline-content-desc">
+        	你一路向西，奔向故乡龟兹。沿途还有许多逃亡的难民，驻守在沙漠边境的唐朝哨兵并未加以阻拦，他们对帝王的忠心已消耗得差不多了。大部分卫兵被征去平叛，仅有小部分士兵留守边疆。几个月后，你终于平安回到了龟兹，在亲朋好友的帮助下，你开始经营自己的妓院。
+        </p>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ <script>
+    
+    (function($) {
+  $.fn.timeline = function() {
+    var selectors = {
+      id: $(this),
+      item: $(this).find(".timeline-item"),
+      activeClass: "timeline-item-active",
+      img: ".timeline-img"
+    };
+    selectors.item.eq(0).addClass(selectors.activeClass);
+    selectors.id.css(
+      "background-image",
+      "url(" +
+        selectors.item
+          .first()
+          .find(selectors.img)
+          .attr("src") +
+        ")"
+    );
+    var itemLength = selectors.item.length;
+    $(window).scroll(function() {
+      var max, min;
+      var pos = $(this).scrollTop();
+      selectors.item.each(function(i) {
+        min = $(this).offset().top;
+        max = $(this).height() + $(this).offset().top;
+        var that = $(this);
+        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+          selectors.item.removeClass(selectors.activeClass);
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              selectors.item
+                .last()
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.last().addClass(selectors.activeClass);
+        } else if (pos <= max - 40 && pos >= min) {
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              $(this)
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.removeClass(selectors.activeClass);
+          $(this).addClass(selectors.activeClass);
+        }
+      });
+    });
+  };
+})(jQuery);
+$("#timeline-1").timeline();
+    </script>
+</body>
+</html>

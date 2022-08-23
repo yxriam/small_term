@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>官员私自印制日历</title>
+		<style type="text/css">
+    #text{height:280px;color:#FFFFFF; font-size:25px;font-family: KaiTi;line-height: 35px;padding-left: 2%;padding-right: 2%;padding-top: 0.5%;}
+		#back{background-color:#90c5bbfe;margin-left: 20%;margin-right: 20%;height:600px;border-radius: 10px;opacity: 80%;}
+		#person{position:fixed;visibility: hidden;top: 82px;left: 0px;}
+		#title{color:#FFFFFF; font-size:45px;font-family: KaiTi;text-align: center;}
+		#button1{background:#90c5bbfe;border: 0;width:120px;height:60px;border-radius: 5px;color: #fff;transition: 0.3s linear;font-family: KaiTi;font-size:20px;text-align: center;line-height: 60px;}
+		#button1:hover{opacity: 0.5;}
+		#button2{background:#90c5bbfe;border: 0;width:120px;height:60px;border-radius: 5px;color: #fff;transition: 0.3s linear;font-family: KaiTi;font-size:20px;text-align: center;line-height: 60px;}
+		#button2:hover{opacity: 0.5;}
+		#button_wrap{left:85%;top:0;position:fixed}
+		.twinkle{position:fixed;visibility:hidden;top:10%;left:45%;height:900px;animation: twinkle 1s infinite alternate;}
+        @keyframes twinkle {
+            0%{
+                opacity:0;
+            }
+            100%{
+                opacity:0.8;
+            }
+		a{text-decoration: none;}
+		</style>
+	</head>
+	<body background="../img/official_back.jpg"
+	style="background-size:100%;
+	background-attachment: fixed;">
+	<div id="back">
+		<p id="title">官员<br/>——从来支许游,兴趣江湖迥<p/>
+		<p id="text"></p>
+	</div>
+	<img src="../img/official.png" id="person">
+	<audio  id="music" autoplay="autoplay" preload="auto" src="../audio/official.mp3"></audio>
+	<div id="button_wrap">
+		<a href="catalog.html"><div id="button1">返回目录</div></a><div id="button2" onclick="jump()">跳过</div>
+	</div>
+	<a href="official_story.html"><img src="../img/coin.png" class="twinkle" id="deer"></a>
+<script>        
+    var i=0;
+    var str1="中国的一位儒学思想家提出“天命”的观念，这意味着如果统治者德行有亏，人民就有反叛的权利。阴、阳构成了浑然一体的自然秩序，皇帝、人、地、天、星、日、月都是其中的一部分。自然秩序中皇帝的这个角色被赋予了一定的道德规范，假如当今皇上的统治不符合这个规范，那么整个宇宙都会陷入失和的状态，并很可能会以日蚀、月蚀或彗星这些现象体现出来。所以，皇帝希望自己手下的天官能预测出任何异常的天体运动，对此作出无碍的解释。不然的话，乱党可能会抓住这些事件作为把柄，宣称这是皇帝昏庸无能的迹象，借此洗白自己的叛乱行为。有鉴于此，天文学家的举动和日历制定受到了极为严密的监管。只有皇室指定的天文官员才获准制定日历，日历做好后会分发到各个省份。";            
+    var str2="]你名为崔奉达，你对天文历算颇感兴趣，经常阅读相关书籍。到了晚上，你也会躺在家中庭院的地板上凝望夜空……虽然你家附近寺院的藏书阁有几本关于天文卜算的著作，但你首先要掌握好儒家经典才能获准研读这些书籍。藏书阁中有一张星图展示了已知的星群，都是古时候三名天文学大家发现、辨认的。在用心研读这张星图之后，很快你就能叫出夜空中看到的那些星体的名字。随后你开始学习恒星和星球的知识，如二十八星宿、日蚀或月蚀的含义、彗星或新星。有个僧人给你展示过寺院藏书阁里几种日历，包括好几册刊本，其中一册还来自长安。但其中最让你感兴趣的是一份用小字印刷的日历，只有一张纸的大小，长约一米有余。那是公元877年的日历，比你的出生年份还要早六年。你捧在手上一看就看了好几个小时，决心要掌握其中的奥秘。";
+    var mydiv=document.getElementById("text");
+    var backele=document.getElementById("back");
+    var person=document.getElementById("person");
+    var deer=document.getElementById("deer");
+    window.onload=function typing(){
+                //获取div
+        mydiv.innerHTML+=str1.charAt(i);
+        i++;
+        var id=setTimeout(typing,200);
+        if(i==str1.length){
+            mydiv.innerHTML="";//清空文字
+            }
+        else if(i>=str1.length)
+        	mydiv.innerHTML+=str2.charAt(i-str1.length);
+        	if(i==(str1.length+str2.length))
+        	{
+        		clearTimeout(id);
+        		mydiv.parentNode.removeChild(mydiv);
+        		backele.parentNode.removeChild(backele);
+        		person.style.visibility="visible";
+        		deer.style.visibility="visible";
+        	}
+      }
+    
+</script>
+<script src="js/pixi.min.js"></script>
+<script language="JavaScript">
+	    var jumpele=document.getElementById("button2");
+	    var mydiv=document.getElementById("text");
+	    var backele=document.getElementById("back");
+    	var person=document.getElementById("person");
+    	var audio = document.getElementById("music");
+	    function jump(){//跳过函数
+	    		mydiv.parentNode.removeChild(mydiv);
+        		backele.parentNode.removeChild(backele);
+        		deer.style.visibility="visible";
+        		person.style.visibility="visible";//跳到人物出场
+        		music.pause();//暂停音乐
+	    }
+</script>
+	</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>船长手札</title>
+    <link rel="stylesheet" href="../css/story.css">
+    <!-- <script src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/story.js"></script> -->
+</head>
+<body>
+	
+     <div class="timeline-container" id="timeline-1">
+  <div class="timeline-header">
+    <h2 class="timeline-header-title">船长手札</h2>
+    <h3 class="timeline-header-subtitle">地点线</h3>
+  </div>
+  
+  <div id="button_wrap">
+		<a href="catalog.html"><div id="button1">返回目录</div></a>
+		<a href="captain.html"><div id="button1">返回上一级</div></a>
+		<a href="interaction.html"><div id="button2">前进</div></a>
+	</div>
+	
+  <div class="timeline">
+    <div class="timeline-item" data-text="地点转移">
+      <div class="timeline-content"><img src="../img/captain_s1.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">阿克苏姆</h2>
+        <p class="timeline-content-desc">
+        	十年前，你的船队被编入卡莱布国王派遣的护航舰队，穿过红海，前往位于阿拉伯半岛南部的也门。此次出征，是因为有报告称也门采法尔和纳季兰两地的阿克苏姆基督教团体受到信奉犹太教的希米亚里特国王优素福的攻击。纳季兰是乳香贸易路线上的重要一站，因此，即使出于经济因素的考量，阿克苏姆人也希望自己能在当地重振声望。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="地点转移">
+      <div class="timeline-content"><img src="../img/captain_s2.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">曼泰</h2>
+        <p class="timeline-content-desc">
+        	几年前，你的船载过一批王室商人，他们试图垄断塔普罗巴奈岛的中国丝绸贸易。中国船只把这些丝绸运抵塔普罗巴奈大港——曼泰。拜占庭皇帝查士丁尼一世企图压低波斯人的提价，建议阿克苏姆商人买下所有丝绸，并以比波斯商人更有利的价格转卖他。然而这单交易并未成功。阿克苏姆人抵达曼泰后发现，当地商人早已习惯与波斯人做交易、赚钱，没想过改变现状。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="地点转移">
+      <div class="timeline-content"><img src="../img/captain_s3.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">塔普罗巴奈</h2>
+        <p class="timeline-content-desc">
+        	你生性好奇，你到访塔普罗巴奈岛，你了解到，盛大的佛牙节即将在群山环绕的都城里举行，在接下来的十天里，越来越多的民众聚集到都城，道路上尽是鲜花、燃香和燃灯佛的造像。最后一天，佛牙被迎出，沿着洒满鲜花的道路巡游逐渐向寺院前进。到达寺院后，佛牙被安置于主佛殿，并将在此供奉九十天，期间人们会把成簇成簇的鲜花供奉给各种宗教仪式。
+        </p>
+      </div>
+    </div>
+  
+	<div class="timeline-item" data-text="地点转移">
+      <div class="timeline-content"><img src="../img/captain_s4.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">印度洋上</h2>
+        <p class="timeline-content-desc">
+        	现在的你渐入迟暮，你希望这会是你最后一次远航，这样就能在家乡停留更长时间。这个愿望成为了现实，不过是以一种始料未及的方式。在后来的一次航行中，这艘船被困在了海上，尽管你拥有高超的航海技术，仍无力回天。最后，你和你的船员以及那些贵重的船货，全都埋葬在了冰冷的海底。
+        </p>
+      </div>
+    </div>
+    
+    
+    
+    
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ <script>
+    
+    (function($) {
+  $.fn.timeline = function() {
+    var selectors = {
+      id: $(this),
+      item: $(this).find(".timeline-item"),
+      activeClass: "timeline-item-active",
+      img: ".timeline-img"
+    };
+    selectors.item.eq(0).addClass(selectors.activeClass);
+    selectors.id.css(
+      "background-image",
+      "url(" +
+        selectors.item
+          .first()
+          .find(selectors.img)
+          .attr("src") +
+        ")"
+    );
+    var itemLength = selectors.item.length;
+    $(window).scroll(function() {
+      var max, min;
+      var pos = $(this).scrollTop();
+      selectors.item.each(function(i) {
+        min = $(this).offset().top;
+        max = $(this).height() + $(this).offset().top;
+        var that = $(this);
+        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+          selectors.item.removeClass(selectors.activeClass);
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              selectors.item
+                .last()
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.last().addClass(selectors.activeClass);
+        } else if (pos <= max - 40 && pos >= min) {
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              $(this)
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.removeClass(selectors.activeClass);
+          $(this).addClass(selectors.activeClass);
+        }
+      });
+    });
+  };
+})(jQuery);
+$("#timeline-1").timeline();
+    </script>
+</body>
+</html>

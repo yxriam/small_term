@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商人——我心向着长安的集市</title>
+		<style type="text/css">
+    	#text{height:280px;color:#FFFFFF; font-size:25px;font-family: KaiTi;line-height: 35px;padding-left: 2%;padding-right: 2%;padding-top: 0.5%;}
+		#back{background:linear-gradient(180deg,#edcbb7,#48649b);margin-left: 20%;margin-right: 20%;height:600px;border-radius: 10px;opacity: 80%;}
+		#princess{position:fixed;visibility: hidden;top: 82px;left: 0px;}
+		#title{color:#FFFFFF; font-size:45px;font-family: KaiTi;text-align: center;}
+		#button1{background:#7f93ae;border: 0;width:120px;height:60px;border-radius: 5px;color: #fff;transition: 0.3s linear;font-family: KaiTi;font-size:20px;text-align: center;line-height: 60px;}
+		#button1:hover{opacity: 0.5;}
+		#button2{background:#7f93ae;border: 0;width:120px;height:60px;border-radius: 5px;color: #fff;transition: 0.3s linear;font-family: KaiTi;font-size:20px;text-align: center;line-height: 60px;}
+		#button2:hover{opacity: 0.5;}
+		#button_wrap{left:85%;top:0;position:fixed}
+		.twinkle{position:fixed;visibility:hidden;top: 50%;left:60%;height: 450px;animation: twinkle 1s infinite alternate;}
+        @keyframes twinkle {
+            0%{
+                opacity:.0.8;
+            }
+            100%{
+                opacity:0;
+            }
+		a{text-decoration: none;}
+		</style>
+	</head>
+	<body background="../img/bussinessman_back.gif"
+	style="background-size:100%;
+	background-attachment: fixed;">
+	<div id="back">
+		<p id="title">商人<br/>——我心向着长安的集市<p/>
+		<p id="text"></p>
+	</div>
+	<img src="../img/bussinessman.png" id="princess">
+	<audio  id="music" autoplay="autoplay" preload="auto" src="../audio/businessman.mp3"></audio>
+	<div id="button_wrap">
+		<a href="catalog.html"><div id="button1">返回目录</div></a><div id="button2" onclick="jump()">跳过</div>
+	</div>
+	<a href="bussinessman_story.html"><img src="../img/deer_1.png" class="twinkle" id="deer1"></a>
+<script>        
+    var i=0;
+    var str1="你叫诺槃陀，你的家族来自片治肯特，东距撒马尔罕约六十五公里，是一个被称作粟特的地区。西来的阿拉伯军队称粟特为“外乌浒水之地”或河中地区。 片治肯特地处粟特东缘，位于泽拉夫尚河谷地，在从帕米尔山脉向东延伸出来的两山之间。片治肯特城建在一座小山上，与其他粟特城市一样，片治肯特也建有坚固的防御城墙，城西部的山坡向下延伸至泽拉夫尚河，从城的东南方眺望过去，便是帕米尔白雪皑皑的山峰。";            
+    var str2="]你是一名摩尼教徒，即公元3世纪巴比伦先知摩尼的信徒，但你并未严格遵循禁酒的戒律。从前的摩尼教徒曾在粟特地区发展成为一个势力强大的教团，与巴比伦的母堂分庭抗礼。随后，他们把满腔的传教热情投向了更远的东方。最初将摩尼教信仰引人河中地区的是摩尼使徒末阿莫，称自己为“真正纯洁者”，粟特信众尊奉他为教派鼻祖。公元8世纪，摩尼教东方教区的中心位于塔里木北部的高昌，从撒马尔罕到长安的路上，摩尼教寺院比比皆是。教团的分裂状态也结束于8世纪，东方教区的信徒们承认了巴比伦教团首领米尔的管辖权。"
+    var mydiv=document.getElementById("text");
+    var backele=document.getElementById("back");
+    var princess=document.getElementById("princess");
+    var deer=document.getElementById("deer1");
+    window.onload=function typing(){
+                //获取div
+        mydiv.innerHTML+=str1.charAt(i);
+        i++;
+        var id=setTimeout(typing,200);
+        if(i==str1.length){
+            mydiv.innerHTML="";//清空文字
+            }
+        else if(i>=str1.length)
+        	mydiv.innerHTML+=str2.charAt(i-str1.length);
+        	if(i==(str1.length+str2.length))
+        	{
+        		clearTimeout(id);
+        		mydiv.parentNode.removeChild(mydiv);
+        		backele.parentNode.removeChild(backele);
+        		princess.style.visibility="visible";
+        		deer.style.visibility="visible";
+        	}
+      }
+    
+</script>
+<script src="js/pixi.min.js"></script>
+<script language="JavaScript">
+	    var jumpele=document.getElementById("button2");
+	    var mydiv=document.getElementById("text");
+	    var backele=document.getElementById("back");
+    	var princess=document.getElementById("princess");
+    	var audio = document.getElementById("music");
+	    function jump(){//跳过函数
+	    		mydiv.parentNode.removeChild(mydiv);
+        		backele.parentNode.removeChild(backele);
+        		deer.style.visibility="visible";
+        		princess.style.visibility="visible";//跳到人物出场
+        		music.pause();//暂停音乐
+	    }
+</script>
+	</body>
+</html>

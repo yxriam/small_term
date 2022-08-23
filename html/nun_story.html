@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>比丘尼手札</title>
+    <link rel="stylesheet" href="../css/story.css">
+</head>
+<body>
+	
+     <div class="timeline-container" id="timeline-1">
+  <div class="timeline-header">
+    <h2 class="timeline-header-title">比丘尼手札</h2>
+    <h3 class="timeline-header-subtitle">时间线</h3>
+  </div>
+  
+  <div id="button_wrap">
+		<a href="catalog.html"><div id="button1">返回目录</div></a>
+		<a href="nun.html"><div id="button1">返回上一级</div></a>
+		<a href="interaction.html"><div id="button2">前进</div></a>
+	</div>
+	
+  <div class="timeline">
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/nun_s1.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">891</h2>
+        <p class="timeline-content-desc">
+        	那时，你还是一个小女孩，正准备接受剃度。轮到你剃度时，你向前走了几步，跪拜在大佛像的前面，并向住持行礼。一位比丘尼用刀从发根附近将你的长发剃下，放在另一位比丘尼端着的小盘中。然后，你又跪拜了三次。当你闭目吟诵佛名时，你的头发被剃光，头部也被洗干净。接下来，你需要背出十戒，然后再次在佛像前跪拜，感谢主持仪式的僧尼。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/nun_s2.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">891-900</h2>
+        <p class="timeline-content-desc">
+        	你坐在讲经殿的灯心草席上，与另外十名比丘尼一起背诵《金刚经》。大殿里的光线十分昏暗，炎热干燥的夏日气息渐渐渗透进来，令你烦躁不安。你在城里一座尼寺做了十年的沙弥尼，如今已准备好接受具足戒。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/nun_s3.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">900</h2>
+        <p class="timeline-content-desc">
+        	“妙福”这个法号是在你第一次受戒时授予的，意为“美好的祝福”。你成为沙弥尼后，好几年都在跑腿打杂，给别的比丘尼做事。你还得听讲经、上僧课，跟律师、法师学习。你识字，因此寺院给你发了经书，让你阅读、熟记与唱诵。你还学会怎样坐禅，还开始学习梵文发音，以便可以念诵佛经与祈愿文的原文。
+        </p>
+      </div>
+    </div>
+  
+	<div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/nun_s4.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">910-961</h2>
+        <p class="timeline-content-desc">
+        	你逐渐因年长且有作为而在佛教团体中德高望重。你在还未到不惑之年就被任命为敦煌最大尼寺的主持，但并非所有人都支持你就任。不过你作风严格，治寺有方，最重要的是你能够精明地打理寺里的大小事务。在你任职期间，尼寺财产大增，除了拥有大量土地，还有两座磨坊和一个榨油作坊。
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item" data-text="公元后">
+        <div class="timeline-content"><img src="../img/nun_s5.gif" class="timeline-img"  />
+          <h2 class="timeline-content-title">961</h2>
+          <p class="timeline-content-desc">
+            随着年龄增长，你越发觉得身体不如以往。你最初卧病不起的时候，曾请一名书写匠前来记录你的遗嘱。几位僧尼被唤来作见证，遗嘱写好后交给新任住持。你在寺中有自己的宅院，其中还有侍女的居所。你的遗嘱主要交代了怎样安置这位侍女和一些可动财产……这年七月中旬，你终究还是永远地合上了双眼。
+          </p>
+        </div>
+      </div>
+    
+    
+    
+    
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ <script>
+    
+    (function($) {
+  $.fn.timeline = function() {
+    var selectors = {
+      id: $(this),
+      item: $(this).find(".timeline-item"),
+      activeClass: "timeline-item-active",
+      img: ".timeline-img"
+    };
+    selectors.item.eq(0).addClass(selectors.activeClass);
+    selectors.id.css(
+      "background-image",
+      "url(" +
+        selectors.item
+          .first()
+          .find(selectors.img)
+          .attr("src") +
+        ")"
+    );
+    var itemLength = selectors.item.length;
+    $(window).scroll(function() {
+      var max, min;
+      var pos = $(this).scrollTop();
+      selectors.item.each(function(i) {
+        min = $(this).offset().top;
+        max = $(this).height() + $(this).offset().top;
+        var that = $(this);
+        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+          selectors.item.removeClass(selectors.activeClass);
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              selectors.item
+                .last()
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.last().addClass(selectors.activeClass);
+        } else if (pos <= max - 40 && pos >= min) {
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              $(this)
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.removeClass(selectors.activeClass);
+          $(this).addClass(selectors.activeClass);
+        }
+      });
+    });
+  };
+})(jQuery);
+$("#timeline-1").timeline();
+    </script>
+</body>
+</html>

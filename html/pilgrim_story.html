@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朝圣者手札</title>
+    <link rel="stylesheet" href="../css/story.css">
+</head>
+<body>
+	
+     <div class="timeline-container" id="timeline-1">
+  <div class="timeline-header">
+    <h2 class="timeline-header-title">朝圣者手札</h2>
+    <h3 class="timeline-header-subtitle">地点线</h3>
+  </div>
+  
+  <div id="button_wrap">
+		<a href="catalog.html"><div id="button1">返回目录</div></a>
+		<a href="pilgrim.html"><div id="button1">返回上一级</div></a>
+		<a href="interaction.html"><div id="button2">前进</div></a>
+	</div>
+	
+  <div class="timeline">
+    <div class="timeline-item" data-text="地点转移">
+      <div class="timeline-content"><img src="../img/pilgrim_s1.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">迦湿弥罗</h2>
+        <p class="timeline-content-desc">
+        	你听说了很多中亚和中国的故事。两个世纪以前，一位著名的唐朝朝圣者玄奘曾在去印度取经的路上在迦湿弥罗待了两年，当地辩论水平之高令玄奘叹服。他在这里搜集了很多与因明学相关的文献，带回中土。现在迦湿弥罗的寺院中也住有一些汉僧，你跟这些人学习他们那种奇怪的语言，稍微会读和写。一直以来你都渴望云游四方，于是855年春，你决定前往唐朝都城长安东北八百多公里的五台山朝圣。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="地点转移">
+      <div class="timeline-content"><img src="../img/pilgrim_s2.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">斯瓦特河谷</h2>
+        <p class="timeline-content-desc">
+        	你们脚下的道路转向西北，进入宏德一带的印度河谷地，并从那里再次进入山区，路经马卡姆河畔的阿育王石柱，穿过马拉根德关口，到达斯瓦特河谷。乌仗那国位于河谷，当时的统治者来自北方，带有突厥与印度的血统。他们在河岸突出的地方修建了很多雄伟的要塞，可以俯瞰河流。在季候降水的滋润下，河谷低处的葡萄和果树茂盛生长，入秋后遍地开满紫色的番红花。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="地点转移">
+      <div class="timeline-content"><img src="../img/pilgrim_s3.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">雅尔浑河谷</h2>
+        <p class="timeline-content-desc">
+        	随着朝圣之路的铺展，你们另加了粮草和物资，雇了一匹马来运载。尽管你们诚心祈求一路顺风，可意外还是发生了。当你们到达山路最高处的时候，发现山峰另一侧下起了雪。由于害怕路上的岩石与降雪，你们下行的速度十分缓慢。幸运的是，当地的矮种马走起这种地形来轻车熟路。你拿着念珠不断祈祷，最终你们顺利下山，到达雅尔浑河谷。
+        </p>
+      </div>
+    </div>
+  
+	<div class="timeline-item" data-text="地点转移">
+      <div class="timeline-content"><img src="../img/pilgrim_s4.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">敦煌</h2>
+        <p class="timeline-content-desc">
+        	经过沙漠到达敦煌时， 你彻底松了一口气。你几乎一无所有，但最令你痛彻心扉的是侍从去世了。你本应照顾这个年轻人，更何况在同行过程中彼此已然成为挚友。在继续上路前，你想花一些时间为侍从超度。你先火化了遗体，用仅剩的一点钱请来寺院住持，为死去的年轻人、为因你而丢了性命的马而诵祷。此外，你还决定为侍从抄写一部经书。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="地点转移">
+        <div class="timeline-content"><img src="../img/pilgrim_s5.gif" class="timeline-img"  />
+          <h2 class="timeline-content-title">五台山</h2>
+          <p class="timeline-content-desc">
+            经过了千万重险阻，你终于抵达了朝圣地。你在五台山停留数月，参观了全部寺院、圣迹等佛址，你还看到了著名的六角形转轮藏。你并没有忘记自己的誓言，在给当地画师与写经生付了些润笔费之后，你把买来的绘画与写经都献给了你死去的同伴。你在深冬时节离开五台山，那时候寺院大殿覆满白雪，旷野一片荒凉，此情此景仿佛呼应着你心中满溢的凄凉……
+          </p>
+        </div>
+      </div> 
+    
+    
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ <script>
+    
+    (function($) {
+  $.fn.timeline = function() {
+    var selectors = {
+      id: $(this),
+      item: $(this).find(".timeline-item"),
+      activeClass: "timeline-item-active",
+      img: ".timeline-img"
+    };
+    selectors.item.eq(0).addClass(selectors.activeClass);
+    selectors.id.css(
+      "background-image",
+      "url(" +
+        selectors.item
+          .first()
+          .find(selectors.img)
+          .attr("src") +
+        ")"
+    );
+    var itemLength = selectors.item.length;
+    $(window).scroll(function() {
+      var max, min;
+      var pos = $(this).scrollTop();
+      selectors.item.each(function(i) {
+        min = $(this).offset().top;
+        max = $(this).height() + $(this).offset().top;
+        var that = $(this);
+        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+          selectors.item.removeClass(selectors.activeClass);
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              selectors.item
+                .last()
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.last().addClass(selectors.activeClass);
+        } else if (pos <= max - 40 && pos >= min) {
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              $(this)
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.removeClass(selectors.activeClass);
+          $(this).addClass(selectors.activeClass);
+        }
+      });
+    });
+  };
+})(jQuery);
+$("#timeline-1").timeline();
+    </script>
+</body>
+</html>

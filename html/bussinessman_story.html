@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商人手札</title>
+    <link rel="stylesheet" href="../css/story.css">
+</head>
+<body>
+	
+     <div class="timeline-container" id="timeline-1">
+  <div class="timeline-header">
+    <h2 class="timeline-header-title">商人手札</h2>
+    <h3 class="timeline-header-subtitle">地点线</h3>
+  </div>
+  
+  <div id="button_wrap">
+		<a href="catalog.html"><div id="button1">返回目录</div></a>
+		<a href="bussinessman.html"><div id="button1">返回上一级</div></a>
+		<a href="interaction.html"><div id="button2">前进</div></a>
+	</div>
+	
+  <div class="timeline">
+    <div class="timeline-item" data-text="地点转移">
+      <div class="timeline-content"><img src="../img/businessman_river.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">伊塞克湖</h2>
+        <p class="timeline-content-desc">
+        	你和叔父沿着可汗的迁移路线，行至伊塞克湖。你们在初春时节出发，到达时已近夏日。羊群刚被剪完羊毛，可汗和军队就准备返回碎叶。大批羊毛正待出售，你的叔父却只对一种不见于远东的肥尾羊的毛感兴趣。你希望在路上就将羊毛和羊皮都销售出去。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="地点转移">
+      <div class="timeline-content"><img src="../img/bussinessman_talimu.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">塔里木西北段</h2>
+        <p class="timeline-content-desc">
+        	叔父决定改沿塔里木西北段进入中原，以便在沿途集市上进行贸易。此时距叔父上次走这条路线已经过去了好几年，他迫不及待地想与老熟人们叙旧，看看有什么商品在出售。这意味着他们现在不得不向南走，设法顺利越过天山。这条路线在冬天几乎无法通行，即使在春天也极其危险，因为冰雪融化，很容易造成大雪崩和冰塌。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="地点转移">
+      <div class="timeline-content"><img src="../img/bussinessman_greenstate.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">阿克苏绿洲</h2>
+        <p class="timeline-content-desc">
+        	旅途的第一站是阿克苏绿洲。和撒马尔罕相比，这座城镇很小，但是它的位置却十分重要，从勃达山路到于阗的南北向道路、以及从喀什到高昌的东西向道路在拔换城交汇。前往拔换城的道路每一天都在变化，一天之内， 甚至从一个驿站走向下一个驿站的时间中道路就变了。最艰难的路段是穿越沼泽，之后路面突然变成碎石缓坡，而在接下来的几公里，路上完全是裸露的岩石。积雪覆盖的汗腾格里峰始终矗立在他们的北方，而南边则是一大片灰黄的沙地。
+
+        </p>
+      </div>
+    </div>
+  
+	<div class="timeline-item" data-text="地点转移">
+      <div class="timeline-content"><img src="../img/bussinessman_country.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">龟兹</h2>
+        <p class="timeline-content-desc">
+        	你们的下一个大站是繁荣的城邦一龟兹， 光是进人城内就需要穿过三重城墙。进城前的几天，他们途经乡村一带，那里良田遍地，物产丰饶，道路两旁白杨列植，果园飘香，大量的杏树、梨树、石榴和桃树茁壮生长。丛林环绕的河流从城市南部的平原经过，在沙漠流沙的边缘形成一道天然屏障，风尘仆仆的路人在这里得以稍事休息。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="地点转移">
+      <div class="timeline-content"><img src="../img/bussinessman_desert.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">塔克拉玛干沙漠</h2>
+        <p class="timeline-content-desc">
+        	此后，商队进入了沉闷的沙漠之旅，这段路漫长而炎热，周遭都是乏味的景观。一天结束时，要足够幸运才能在破败的小旅店中歇脚;生病的骆驼带来种种麻烦:沙漠夜寒，烈日似火，沙尘暴和洪水突如其来，还得提防着随时可能出现的强盗。驿站十分重要。在唐廷控制期间，驿站得到维护，保持着良好的运营。有好些夜晚，你和叔父歇宿的小旅店是荒村里唯一有人烟的建筑。
+
+        </p>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ <script>
+    
+    (function($) {
+  $.fn.timeline = function() {
+    var selectors = {
+      id: $(this),
+      item: $(this).find(".timeline-item"),
+      activeClass: "timeline-item-active",
+      img: ".timeline-img"
+    };
+    selectors.item.eq(0).addClass(selectors.activeClass);
+    selectors.id.css(
+      "background-image",
+      "url(" +
+        selectors.item
+          .first()
+          .find(selectors.img)
+          .attr("src") +
+        ")"
+    );
+    var itemLength = selectors.item.length;
+    $(window).scroll(function() {
+      var max, min;
+      var pos = $(this).scrollTop();
+      selectors.item.each(function(i) {
+        min = $(this).offset().top;
+        max = $(this).height() + $(this).offset().top;
+        var that = $(this);
+        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+          selectors.item.removeClass(selectors.activeClass);
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              selectors.item
+                .last()
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.last().addClass(selectors.activeClass);
+        } else if (pos <= max - 40 && pos >= min) {
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              $(this)
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.removeClass(selectors.activeClass);
+          $(this).addClass(selectors.activeClass);
+        }
+      });
+    });
+  };
+})(jQuery);
+$("#timeline-1").timeline();
+    </script>
+</body>
+</html>

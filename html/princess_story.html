@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公主日记</title>
+    <link rel="stylesheet" href="../css/story.css">
+</head>
+<body>
+     <div class="timeline-container" id="timeline-1">
+  <div class="timeline-header">
+    <h2 class="timeline-header-title">公主手札</h2>
+    <h3 class="timeline-header-subtitle">时间线</h3>
+  </div>
+  
+    <div id="button_wrap">
+		<a href="catalog.html"><div id="button1">返回目录</div></a>
+		<a href="princess.html"><div id="button1">返回上一级</div></a>
+		<a href="interaction.html"><div id="button2">前进</div></a>
+	</div>
+	
+  <div class="timeline">
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/princess_journey.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">821-822</h2>
+        <p class="timeline-content-desc">
+        	你从大唐出发，风雨兼程，到达回鹘。大唐风景多娇，而回鹘只有漫天的雪与荒芜，你无处寄托对故土的思念。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/princess_wedding.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">822</h2>
+        <p class="timeline-content-desc">
+        	你与可汗大婚，婚后入住的宫殿富丽堂皇，堪比唐朝皇宫。你不仅是回鹘与唐朝结盟的象征，作为可敦，你在回鶻官廷中也握有一定的权力。你可以建立自己的势力，而且有长达一年的时间，唐朝使臣都陪伴在你身边。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/princess_collapse.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">824</h2>
+        <p class="timeline-content-desc">
+        	仅2年，可汗离世。你没有殉葬，但作为妥协，你以刀划面，留在了斡耳朵八里，并培养自己的势力。
+        </p>
+      </div>
+    </div>
+  
+	<div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/princess_war.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">839-840</h2>
+        <p class="timeline-content-desc">
+        	839年，可汗以叛国罪为名，处死两名大臣，两人的幕僚为了报复暗杀了可汗，自此斡耳朵八里陷入危机之中。
+        	840年，黠戛斯人攻陷回鹘国都，杀害了回鹘新可汗，纵火烧城。社中居民与周围农户纷纷南逃，你被俘。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/princess_changan.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">842-843</h2>
+        <p class="timeline-content-desc">
+        	842年是纷争不断的一年。那时唐朝尚不知吐蕃赞普过世的消息，因此担心回鹘会趁着黄河冰冻期过河，投靠吐蕃。你仍然被回鹘人挾持着，唐廷希望能确保你的安全。
+        	843年春，一支唐朝远征军偷袭了回鹘营地，你在护送下南走，于暮春返回长安。
+
+        </p>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ <script>
+    
+    (function($) {
+  $.fn.timeline = function() {
+    var selectors = {
+      id: $(this),
+      item: $(this).find(".timeline-item"),
+      activeClass: "timeline-item-active",
+      img: ".timeline-img"
+    };
+    selectors.item.eq(0).addClass(selectors.activeClass);
+    selectors.id.css(
+      "background-image",
+      "url(" +
+        selectors.item
+          .first()
+          .find(selectors.img)
+          .attr("src") +
+        ")"
+    );
+    var itemLength = selectors.item.length;
+    $(window).scroll(function() {
+      var max, min;
+      var pos = $(this).scrollTop();
+      selectors.item.each(function(i) {
+        min = $(this).offset().top;
+        max = $(this).height() + $(this).offset().top;
+        var that = $(this);
+        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+          selectors.item.removeClass(selectors.activeClass);
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              selectors.item
+                .last()
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.last().addClass(selectors.activeClass);
+        } else if (pos <= max - 40 && pos >= min) {
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              $(this)
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.removeClass(selectors.activeClass);
+          $(this).addClass(selectors.activeClass);
+        }
+      });
+    });
+  };
+})(jQuery);
+$("#timeline-1").timeline();
+    </script>
+</body>
+</html>

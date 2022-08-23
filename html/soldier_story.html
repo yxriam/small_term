@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>士兵手札</title>
+    <link rel="stylesheet" href="../css/story.css">
+</head>
+<body>
+	
+     <div class="timeline-container" id="timeline-1">
+  <div class="timeline-header">
+    <h2 class="timeline-header-title">士兵手札</h2>
+    <h3 class="timeline-header-subtitle">地点线</h3>
+  </div>
+  
+  <div id="button_wrap">
+		<a href="catalog.html"><div id="button1">返回目录</div></a>
+		<a href="soldier.html"><div id="button1">返回上一级</div></a>
+		<a href="interaction.html"><div id="button2">前进</div></a>
+	</div>
+	
+  <div class="timeline">
+    <div class="timeline-item" data-text="地点转移">
+      <div class="timeline-content"><img src="../img/soldier_s1.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">米兰</h2>
+        <p class="timeline-content-desc">
+        	当你驻扎在吐蕃要塞米兰时，部分灌溉系统已被废弃。城镇的人口不足以维持整个系统，很多支渠已经堵塞，黄沙和柽柳接连侵占了原本肥沃的麦田。在负责灌溉事务的官员的指导下，你和你的小队疏浚现有的水渠。你和其他士兵们也会被派遣去采集木料，一些木料被削成长条制成算筹，用来登记分发给附近岗哨和戍堡的物资，其他木料则与红柳一起用作柴火或建筑材料。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="地点转移">
+      <div class="timeline-content"><img src="../img/soldier_s2.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">帕米尔群山</h2>
+        <p class="timeline-content-desc">
+        	你向人们讲述了一场发生在帕米尔群山中自己亲身经历的战斗….那时许多米兰的士兵都很年轻，从未在帕米尔服过役，但是他们了解山地的地形地势，你就是其中之一，你用木棍在房间的泥墙上绘出双方位置图，你绘出阿姆河和一千人的分队在河南岸的驻扎位置，并解释道，此分队的任务是延阻唐朝军队从北边渡河，并向吐蕃军主力提前预警敌军的进攻。你们还会将唐朝军队引入支流谷地的埋伏中。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="地点转移">
+      <div class="timeline-content"><img src="../img/soldier_s3.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">昆仑山脉</h2>
+        <p class="timeline-content-desc">
+        	你和你的战友们在沙漠堡垒中又度过了许许多多个夜晚，讲述过去的战争，交换以前的经历。最终，你被准许退伍还乡。你从十五岁起开始参战，而战场上超过五十岁的士兵大有人在，但是你身上受了几处伤，很难再继续服役。早前短暂回乡时，你结了婚，有了孩子。在过去的二十多年里，主要是你的妻儿在家寒耕暑耘。你请当地一位占星术士卜算出启程吉日，然后整理行装，向南部的昆仑山进发。
+        </p>
+      </div>
+    </div>
+  
+	<div class="timeline-item" data-text="地点转移">
+      <div class="timeline-content"><img src="../img/soldier_s4.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">归乡途中</h2>
+        <p class="timeline-content-desc">
+        	在接下来的漫长旅程中，你路过了很多充满回忆的地方。你脚程很快，经过一个又一个吐蕃营地，穿越柴达木盆地的广阔牧区，来到重归吐蕃控制的青海湖，这里的回忆尤为苦涩。你骑着马，在曾经的战场周边打转，回想起很久之前的那场战争。新生的牧草掩盖了血腥的过往，只有一些锈蚀、残破的兵器，仍然提醒着人们不要忘记那些残酷的岁月……
+        </p>
+      </div>
+    </div>
+    
+    
+    
+    
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ <script>
+    
+    (function($) {
+  $.fn.timeline = function() {
+    var selectors = {
+      id: $(this),
+      item: $(this).find(".timeline-item"),
+      activeClass: "timeline-item-active",
+      img: ".timeline-img"
+    };
+    selectors.item.eq(0).addClass(selectors.activeClass);
+    selectors.id.css(
+      "background-image",
+      "url(" +
+        selectors.item
+          .first()
+          .find(selectors.img)
+          .attr("src") +
+        ")"
+    );
+    var itemLength = selectors.item.length;
+    $(window).scroll(function() {
+      var max, min;
+      var pos = $(this).scrollTop();
+      selectors.item.each(function(i) {
+        min = $(this).offset().top;
+        max = $(this).height() + $(this).offset().top;
+        var that = $(this);
+        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+          selectors.item.removeClass(selectors.activeClass);
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              selectors.item
+                .last()
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.last().addClass(selectors.activeClass);
+        } else if (pos <= max - 40 && pos >= min) {
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              $(this)
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.removeClass(selectors.activeClass);
+          $(this).addClass(selectors.activeClass);
+        }
+      });
+    });
+  };
+})(jQuery);
+$("#timeline-1").timeline();
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>朝圣者五台山问道</title>
+		<style type="text/css">
+    #text{height:280px;color:#FFFFFF; font-size:25px;font-family: KaiTi;line-height: 35px;padding-left: 2%;padding-right: 2%;padding-top: 0.5%;}
+		#back{background-color:#92cde3;margin-left: 20%;margin-right: 20%;height:600px;border-radius: 10px;opacity: 80%;}
+		#person{position:fixed;visibility: hidden;top: 82px;left: 0px;}
+		#title{color:#FFFFFF; font-size:45px;font-family: KaiTi;text-align: center;}
+		#button1{background:#92cde3;border: 0;width:120px;height:60px;border-radius: 5px;color: #fff;transition: 0.3s linear;font-family: KaiTi;font-size:20px;text-align: center;line-height: 60px;}
+		#button1:hover{opacity: 0.5;}
+		#button2{background:#92cde3;border: 0;width:120px;height:60px;border-radius: 5px;color: #fff;transition: 0.3s linear;font-family: KaiTi;font-size:20px;text-align: center;line-height: 60px;}
+		#button2:hover{opacity: 0.5;}
+		#button_wrap{left:85%;top:0;position:fixed}
+		.twinkle{position:fixed;visibility:hidden;top:10%;left:45%;width:1000px;animation: twinkle 1s infinite alternate;}
+        @keyframes twinkle {
+            0%{
+                opacity:0;
+            }
+            100%{
+                opacity:0.8;
+            }
+		a{text-decoration: none;}
+		</style>
+	</head>
+	<body background="../img/pilgrim_back.jpg"
+	style="background-size:100%;
+	background-attachment: fixed;">
+	<div id="back">
+		<p id="title">朝圣者<br/>——行到水穷处，坐看云起时<p/>
+		<p id="text"></p>
+	</div>
+	<img src="../img/pilgrim.png" id="person">
+	<audio  id="music" autoplay="autoplay" preload="auto" src="../audio/pilgrim.mp3"></audio>
+	<div id="button_wrap">
+		<a href="catalog.html"><div id="button1">返回目录</div></a><div id="button2" onclick="jump()">跳过</div>
+	</div>
+	<a href="pilgrim_story.html"><img src="../img/pilgrim_intro.png" class="twinkle" id="deer"></a>
+<script>        
+    var i=0;
+    var str1="五台山因五座顶部平坦如台的山峰而得名，山峰海拔有两千七百多米。早在公元3世纪，山顶上、山脚下便建起了寺院。到5世纪，五台山已有两百余座寺庙。而从7、8世纪开始，五台山的寺院逐渐变得十分繁荣，吸引了世界各地数以万计的朝圣者前来参拜。常有僧侣从印度、朝鲜半岛和日本过来，有些会在此停留数年，学习佛法，在山中刻铭纪念。824年，吐蕃赞普向唐朝皇帝求取一幅五台山的布局图，唐朝皇帝满足了他的愿望，此后吐蕃僧也开始到五台山来朝圣。虽说吐蕃王室早在一个世纪前就将佛教定为国教，但佛教信仰是后来才流行起来的。僧人莲花生从斯瓦特前来吐蕃传法，为此赞普开始广建寺院。在位于吐蕃南部、雅鲁藏布江河谷的桑耶寺，中心主殿象征着宇宙的中心——须弥山，两侧分别建有佛殿，象征日月，寺院还建有圆形围墙，象征着大千世界的边缘";            
+    var str2="]时值870年，你来自迦湿弥罗国，你的名字叫作楚达。你在塔里木盆地附近的敦煌行医十五载，你居住的寺院位于城外十九公里的断崖旁边。你每日的日常就是来到城中心的一座寺院旁支摊。这座寺院规模较小，仅有的二十余名僧人全都住在靠墙的一排小木屋里。寺中僧人给自己预留了最好的位置，他们在佛寺的小木门旁售卖卷轴、画作、小册子与“挡万煞”的咒符。城中居民与游人在寺院里进进出出，很多人会在门口这儿停下脚步烧香祭拜两位守门的门神，然后沿路逛逛摊子。排列在主路两侧的摊位一直延伸至相邻的市集，当地或游方而来的僧人在这些摊位上用各种方式给人算命，最盛行的是解签…现在迦湿弥罗的寺院中也住有一些汉僧，你跟这些人学习他们那种奇怪的语言，稍微会读和写。一直以来你都渴望云游四方，于是855年春，你决定前往唐朝都城长安东北八百多公里的五台山朝圣。";
+    var mydiv=document.getElementById("text");
+    var backele=document.getElementById("back");
+    var person=document.getElementById("person");
+    var deer=document.getElementById("deer");
+    window.onload=function typing(){
+                //获取div
+        mydiv.innerHTML+=str1.charAt(i);
+        i++;
+        var id=setTimeout(typing,200);
+        if(i==str1.length){
+            mydiv.innerHTML="";//清空文字
+            }
+        else if(i>=str1.length)
+        	mydiv.innerHTML+=str2.charAt(i-str1.length);
+        	if(i==(str1.length+str2.length))
+        	{
+        		clearTimeout(id);
+        		mydiv.parentNode.removeChild(mydiv);
+        		backele.parentNode.removeChild(backele);
+        		person.style.visibility="visible";
+        		deer.style.visibility="visible";
+        	}
+      }
+    
+</script>
+<script src="js/pixi.min.js"></script>
+<script language="JavaScript">
+	    var jumpele=document.getElementById("button2");
+	    var mydiv=document.getElementById("text");
+	    var backele=document.getElementById("back");
+    	var person=document.getElementById("person");
+    	var audio = document.getElementById("music");
+	    function jump(){//跳过函数
+	    		mydiv.parentNode.removeChild(mydiv);
+        		backele.parentNode.removeChild(backele);
+        		deer.style.visibility="visible";
+        		person.style.visibility="visible";//跳到人物出场
+        		music.pause();//暂停音乐
+	    }
+</script>
+	</body>
+</html>

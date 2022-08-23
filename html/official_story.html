@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>官员手札</title>
+    <link rel="stylesheet" href="../css/story.css">
+</head>
+<body>
+	
+     <div class="timeline-container" id="timeline-1">
+  <div class="timeline-header">
+    <h2 class="timeline-header-title">官员手札</h2>
+    <h3 class="timeline-header-subtitle">时间线</h3>
+  </div>
+  
+  <div id="button_wrap">
+		<a href="catalog.html"><div id="button1">返回目录</div></a>
+		<a href="official.html"><div id="button1">返回上一级</div></a>
+		<a href="interaction.html"><div id="button2">前进</div></a>
+	</div>
+	
+  <div class="timeline">
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/official_s1.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">890</h2>
+        <p class="timeline-content-desc">
+        	你第一次上学之时，和几个年纪较大的男孩一起坐在寺院的配殿里。老师是军队里一名年轻的文吏，他给每个学生发了毛笔和一张背面用过的纸，还帮他们磨墨。接着，老师在你旁边坐了下来，给你示范怎样写字，老师按从右到左的方向，在纸的最上端写下《千字文》的头五个字。你拿起笔，尝试模仿那行字，在下面的空白处再写一遍。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/official_s2.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">903</h2>
+        <p class="timeline-content-desc">
+        	二十岁的你仍在课堂上抄写文献，不过已经有一个士子的模样，并且开始作诗。你的书法有了很大进步，所研究的文献也比从前高深许多，此刻你正忙着抄写一篇占卜文。你在抄本上署名，写下日期“天复贰载岁在壬戌四月”，并在卷末左边空白处题了几句诗。这些诗句的措辞大都从经典作品中借来，抒发一位儒家士子的雄心：“男儿不学读诗书，恰似肥菜根枯尽。
+        </p>
+      </div>
+    </div>
+  
+	<div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/official_s3.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">908</h2>
+        <p class="timeline-content-desc">
+        	在你初次作诗的五年后，敦煌开始有人传言唐朝灭亡了。对你的父亲来说，这意味着儿子当上朝廷官员的愿望破灭了。但是这时，你已经离开学校，娶妻成家。你像你父亲那样，在当地官府做文官，但仍然研究并抄写文献，希望创作出更多有分量的作品。
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item" data-text="公元后">
+        <div class="timeline-content"><img src="../img/official_s4.gif" class="timeline-img"  />
+          <h2 class="timeline-content-title">924-929</h2>
+          <p class="timeline-content-desc">
+            在早年你对天文学的兴趣促使之下，你经过多年对天文学的学习，终于具备足够的知识，能够亲自计算日历了。时值924年，你写完书稿，最后画上北斗七星的图案，就完成了一份日历。在接下来的几年里，你雇抄工来抄写自己的日历，不过只能抄写在用过的纸上……但是你制定日历的消息被传了出去，幸而私制日历一事未被朝廷追究，反倒你因祸得福，升任为敦煌的国子祭酒，后迁州学博士。
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-text="公元后">
+        <div class="timeline-content"><img src="../img/official_s5.gif" class="timeline-img"  />
+          <h2 class="timeline-content-title">960年</h2>
+          <p class="timeline-content-desc">
+            这年宋朝建立。可是，你依旧留滞敦煌，没能踏足先人故乡所在的那片土地。几年后，约966年，你便撒手人寰。
+          </p>
+        </div>
+      </div>
+    
+   
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ <script>
+    
+    (function($) {
+  $.fn.timeline = function() {
+    var selectors = {
+      id: $(this),
+      item: $(this).find(".timeline-item"),
+      activeClass: "timeline-item-active",
+      img: ".timeline-img"
+    };
+    selectors.item.eq(0).addClass(selectors.activeClass);
+    selectors.id.css(
+      "background-image",
+      "url(" +
+        selectors.item
+          .first()
+          .find(selectors.img)
+          .attr("src") +
+        ")"
+    );
+    var itemLength = selectors.item.length;
+    $(window).scroll(function() {
+      var max, min;
+      var pos = $(this).scrollTop();
+      selectors.item.each(function(i) {
+        min = $(this).offset().top;
+        max = $(this).height() + $(this).offset().top;
+        var that = $(this);
+        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+          selectors.item.removeClass(selectors.activeClass);
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              selectors.item
+                .last()
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.last().addClass(selectors.activeClass);
+        } else if (pos <= max - 40 && pos >= min) {
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              $(this)
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.removeClass(selectors.activeClass);
+          $(this).addClass(selectors.activeClass);
+        }
+      });
+    });
+  };
+})(jQuery);
+$("#timeline-1").timeline();
+    </script>
+</body>
+</html>

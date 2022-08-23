@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>马夫日记</title>
+    <link rel="stylesheet" href="../css/story.css">
+</head>
+<body>
+     <div class="timeline-container" id="timeline-1">
+  <div class="timeline-header">
+    <h2 class="timeline-header-title">马夫手札</h2>
+    <h3 class="timeline-header-subtitle">时间线</h3>
+  </div>
+  
+    <div id="button_wrap">
+		<a href="catalog.html"><div id="button1">返回目录</div></a>
+		<a href="groom.html"><div id="button1">返回上一级</div></a>
+		<a href="interaction.html"><div id="button2">前进</div></a>
+	</div>
+	
+  <div class="timeline">
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/groom_imperial_city.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">755-756</h2>
+        <p class="timeline-content-desc">
+        	755年，也就是安史之乱开始的那一年，吐蕃赞普遭到两位大臣暗杀。
+        	756年新赞普即位。那时中国已经召回了在西域驻扎的大部分军队，于是吐蕃立即趁机挥师北上。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/groom_scheme.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">783</h2>
+        <p class="timeline-content-desc">
+        	回鹘人不断劫掠、借平叛的功劳一次次要求补偿金，逐渐耗干了唐朝的国库。因此唐廷转而积极地与吐蕃达成和解。783年，双方经过协商后签订了一项协议，唐朝军队得以抽出手来对付又一次内乱。根据这两大势力的和解内容，吐蕃承诺协助唐朝平叛，唐朝一方则割让别失八里给吐蕃。然而双方均未遵守协议，吐蕃甚至设计暗杀了两名唐朝大将作为报复。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/groom_horses.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">790</h2>
+        <p class="timeline-content-desc">
+        	夏天，你带着几百匹来自准噶尔南部牧场的马，准备加入旅行队的行列。他的这些马匹中很多都是老马，剩下的那些也很难走到目的地。你知道唐朝的督查会对马匹质量有所不满，但他们无可奈何，只能全数买下。回鹘人则会带回一匹匹精美的丝绸，与西方邻国再做交易。趁着马匹贸易这样的好机会，回鹘人可以把莠马都处理掉，如果马匹死在途中，正好用以果腹。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/groom_troops.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">791</h2>
+        <p class="timeline-content-desc">
+        	你带上盔甲、武器和最好的马，加入了同乡们的操练行列。汗国北部和东部的各个部落于初秋在都城汇合，继而南下。沿途又有其他军队加人大军，你所在的部队是最后一支加进来的。这支混合军队浩浩荡荡向南挺进，率领队伍的将军是回鹘的宰相，他一心想要为此前被吐蕃打败雪耻。
+        </p>
+      </div>
+    </div>
+  
+	<div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/groom_war.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">792</h2>
+        <p class="timeline-content-desc">
+        	在高昌与唐朝军队汇合后，你和同伴们所在的回鹤军队开始北上，重新翻越天山。在别失八里城下的平原地带，吐蕃军队严阵以待。接下来的每一天，场面都十分混乱，充斥着大量的士兵、马匹和武器。每个夜晚，当军队撤退回到自己的营地时，倒下的士兵便被遗弃在战场上。回鹘和唐朝联军无法将阵线向吐着一方推进，随着战程渐长，联军的兵力开始减弱，士气也愈发低迷。随后，吐蕃开始推进战线，联军士兵试图逃跑，乱成一团，你被困在兵荒马乱之中。位于阵线后方的指挥官挥刀砍向自己的兵员，想要恐吓他们回到战场。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/groom_death.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">792</h2>
+        <p class="timeline-content-desc">
+        	你的尸首留在了战场上，你的家人们遵循习俗，把脸划伤，表示哀悼。
+        </p>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ <script>
+    
+    (function($) {
+  $.fn.timeline = function() {
+    var selectors = {
+      id: $(this),
+      item: $(this).find(".timeline-item"),
+      activeClass: "timeline-item-active",
+      img: ".timeline-img"
+    };
+    selectors.item.eq(0).addClass(selectors.activeClass);
+    selectors.id.css(
+      "background-image",
+      "url(" +
+        selectors.item
+          .first()
+          .find(selectors.img)
+          .attr("src") +
+        ")"
+    );
+    var itemLength = selectors.item.length;
+    $(window).scroll(function() {
+      var max, min;
+      var pos = $(this).scrollTop();
+      selectors.item.each(function(i) {
+        min = $(this).offset().top;
+        max = $(this).height() + $(this).offset().top;
+        var that = $(this);
+        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+          selectors.item.removeClass(selectors.activeClass);
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              selectors.item
+                .last()
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.last().addClass(selectors.activeClass);
+        } else if (pos <= max - 40 && pos >= min) {
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              $(this)
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.removeClass(selectors.activeClass);
+          $(this).addClass(selectors.activeClass);
+        }
+      });
+    });
+  };
+})(jQuery);
+$("#timeline-1").timeline();
+    </script>
+</body>
+</html>

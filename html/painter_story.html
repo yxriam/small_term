@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画家手札</title>
+    <link rel="stylesheet" href="../css/story.css">
+</head>
+<body>
+	
+     <div class="timeline-container" id="timeline-1">
+  <div class="timeline-header">
+    <h2 class="timeline-header-title">画家手札</h2>
+    <h3 class="timeline-header-subtitle">时间线</h3>
+  </div>
+  
+  <div id="button_wrap">
+		<a href="catalog.html"><div id="button1">返回目录</div></a>
+		<a href="painter.html"><div id="button1">返回上一级</div></a>
+		<a href="interaction.html"><div id="button2">前进</div></a>
+	</div>
+	
+  <div class="timeline">
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/painter_s1.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">960</h2>
+        <p class="timeline-content-desc">
+        	曹元忠出资开凿了一座新窟，你负责监督其中的装饰工作。洞窟的开凿交给一些技艺不熟练的工人。他们首先在峭壁下选择一块空地搭建脚手架，一直搭到预定的窟顶高度。到10世纪中期，大部分崖壁都开凿了石窟，数百座洞窟如蜂巢般布满了黄色的岩壁，洞窟之间以木栈道与台阶相连。之前的洞窟常被重修，有时会扩建，有时只是简单地重绘壁画。敦煌附近也开始修建其他石窟。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/painter_s2.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">962</h2>
+        <p class="timeline-content-desc">
+        	当时，舍利弗的故事十分流行，你在其他洞窟也画过类似的图像，你只需翻一下自己的资料，便可找到创作所需的草图。开工前，你会在洞窟中用一个上午的时间来丈量尺寸，并在脑海中构思场景的布局。接着，你吩咐年轻学徒们在墙上做标记。他们将线绳沾满红粉，贴着墙拉紧，然后轻弹，红粉便会从线绳抖到墙面上，这样一来便标记出每个水平图层的边界及主构图的界限。
+        </p>
+      </div>
+    </div>
+    
+    <div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/painter_s3.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">963</h2>
+        <p class="timeline-content-desc">
+        	往往在开工之前丈量过后，你与其他画师便用动物毛做成的毛笔与黑炭勾勒出主要画面的轮廓。他们徒手作画，有些则以草图作为参考。下一步是绘出细节并上色。你查验画坊储存的颜料、画粉、毛笔及其他用品是否充足，以防万一又多订购了一些，实际的绘画准备工作则留给初级的画师来完成。绘画颜料取材于矿物及有机染料，还有一些是进口的。
+        </p>
+      </div>
+    </div>
+  
+	<div class="timeline-item" data-text="公元后">
+      <div class="timeline-content"><img src="../img/painter_s4.gif" class="timeline-img"  />
+        <h2 class="timeline-content-title">965-966</h2>
+        <p class="timeline-content-desc">
+        	在你的时代，宋都汴梁的画师大多认为敦煌只是穷乡僻壤，他们已然忘记中原王朝的辉煌岁月，忘记这片土地曾怎样沿着商路穿过塔里木盆地，与外面的世界进行交流。远方的图像、技艺及其他艺术文化瑰宝，经由塔里木一带逐渐渗透进来，最终成就了他们……
+        </p>
+      </div>
+    </div>
+    
+    
+    
+    
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ <script>
+    
+    (function($) {
+  $.fn.timeline = function() {
+    var selectors = {
+      id: $(this),
+      item: $(this).find(".timeline-item"),
+      activeClass: "timeline-item-active",
+      img: ".timeline-img"
+    };
+    selectors.item.eq(0).addClass(selectors.activeClass);
+    selectors.id.css(
+      "background-image",
+      "url(" +
+        selectors.item
+          .first()
+          .find(selectors.img)
+          .attr("src") +
+        ")"
+    );
+    var itemLength = selectors.item.length;
+    $(window).scroll(function() {
+      var max, min;
+      var pos = $(this).scrollTop();
+      selectors.item.each(function(i) {
+        min = $(this).offset().top;
+        max = $(this).height() + $(this).offset().top;
+        var that = $(this);
+        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+          selectors.item.removeClass(selectors.activeClass);
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              selectors.item
+                .last()
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.last().addClass(selectors.activeClass);
+        } else if (pos <= max - 40 && pos >= min) {
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              $(this)
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.removeClass(selectors.activeClass);
+          $(this).addClass(selectors.activeClass);
+        }
+      });
+    });
+  };
+})(jQuery);
+$("#timeline-1").timeline();
+    </script>
+</body>
+</html>
