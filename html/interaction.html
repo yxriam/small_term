@@ -14,7 +14,7 @@
         //设置定时函数
         var d=new Array(10);
         //保存大DIV当前装的小DIV的编号
- 
+
         // 每个小div可以去的位置，比如第一块可以去2,4号位置
         var d_direct=new Array(
                 //为了逻辑更简单，第一个元素我们不用，我们从下标1开始使用
@@ -34,14 +34,14 @@
         var d_posXY=new Array(
                 [0],
                 [0,0],
-                [260,0],
-                [520,0],
-                [0,260],
-                [260,260],
-                [520,260],
-                [0,520],
-                [260,520],
-                [520,520]
+                [200,0],
+                [400,0],
+                [0,200],
+                [200,200],
+                [400,200],
+                [0,400],
+                [200,400],
+                [400,400]
         );
         //大DIV编号的位置
         d[1]=1;d[2]=2;d[3]=3;d[4]=4;d[5]=5;d[6]=6;d[7]=7;d[8]=8;d[9]=0;
@@ -158,7 +158,6 @@
                 //然后把它们两个的DIV保存的编号对调一下
             }
         }
- 
         //初始化函数，页面加载的时候调用重置函数，重新开始
         window.onload=function(){
             reset();
@@ -166,13 +165,18 @@
     </script>
 </head>
 <body>
+	<audio  id="music" autoplay="autoplay" preload="auto" src="../audio/interaction.mp3"></audio>
 <div id="up">
     <p>游戏规则：</p>
     <p>移动空格块旁边的方块，使得它们组合成完整的图片</p>
     <p>点击重来顺序会重新被打乱</p>
-    <audio autoplay="" loop="">
-        <source src="music/陈秋含%20-%20青梅竹马.mp3">
-    </audio>
+</div>
+<div id="transition">
+	<p>人生际遇难复言，</p>
+	<p>条条道道皆乾坤。</p>
+	<p>若叹此路难为走，</p>
+	<p>亦知伊是道中人。</p>
+	回望您一路走来的“此生”，或有落寞悒郁，或有春风得意…凡此种种，皆道人生。为了带您走出西域过往，回归原有人生，我们为您准备了穿越触发点：完成挑战，我们在千年后再次相遇！
 </div>
 <div id="container">
     <!--最外面的DIV，用来包含里面的结构-->
@@ -201,6 +205,11 @@
         </p>
         <!--显示控制按钮区域-->
     </div>
+    <div id="button_wrap">
+		<a href="catalog.html"><div id="button1">返回目录</div></a>
+		<a href="official.html"><div id="button1">返回上一级</div></a>
+		<a href="complete.html"><div id="button2">前进</div></a>
+	</div>
     <div class="kuang">
         <div class="bubble"></div>
         <div class="bubble"></div>
