@@ -14,24 +14,33 @@
             background-color:#d89c95;
         }
         #up{
-            font-size: 25px;
-            font-family: 幼圆;
-            color: black;
+            font-size: 20px;
+            font-family: KaiTi;
+            text-align: center;
+        }
+        #transition{
+        	margin-left: 50px;
+        	position: fixed;
+        	font-size: 20px;
+        	line-height: 35px;
+        	width: 250px;
+        	font-family: Kaiti;
+        	color: #FFFFFF;
         }
         /* 给body设置100%的高度和宽度，这样就会根据浏览器屏幕大小自动适配 */
         #container{
             position: relative;
-            width: 1000px;
-            height: 700px;
+            width: 780px;
+            height: 600px;
             margin: 0 auto;
-            margin-top: 60px;
+            margin-top: 15px;
             border-radius: 1px;
         }
         /* 这是包裹所有元素的DIV，给他设置780px的宽和780px的高，这个大小可以设置为更大，但是不能小，至少要能包含里面所有的元素 */
         #game{
             position: absolute;
-            width: 780px;
-            height: 780px;
+            width: 600px;
+            height: 600px;
             border-radius: 5px;
             display: inline-block;
             /*background-color: #ffe171;*/
@@ -40,8 +49,8 @@
         /* 这是游戏区的DIV，这个大小是计算出来的，取决于你的小方块的大小。这里我们设置小方块的大小为260px 260px，所以这个大小是150px*3，为450px */
         #game div{
             position: absolute;
-            width: 259px;
-            height: 259px;
+            width: 199px;
+            height: 199px;
             box-shadow: 1px 1px 2px #777;
             background-color: #20a6fa;
             color: white;
@@ -63,8 +72,8 @@
         }
         /*给方块设置鼠标悬停动画，当鼠标悬停在元素上面时，会用这里的属性替换上面的属性，移开后又会变为原来的，这里我们是把字体颜色改变*/
         #control{
-            width: 200px;
-            height: 780px;
+            width: 150px;
+            height: 600px;
             display: inline-block;
             float: right;
         }
@@ -90,6 +99,9 @@
             text-align: center;
             cursor: pointer;
         }
+        #start:hover{
+        	opacity: 0.8;
+        }
         /*给start按钮设置属性。cursor:pointer属性让鼠标移到元素上面时会显示不同的鼠标形状，pointer是手型*/
         #reset{
             display: inline-block;
@@ -103,6 +115,9 @@
             box-shadow: 2px 2px 5px #b12f20;/*盒子阴影*/
             text-align: center;/*文字居中*/
             cursor: pointer;
+        }
+        #reset:hover{
+        	opacity: 0.8;
         }
         #exchange{
             display: inline-block;
@@ -122,28 +137,35 @@
             left: 0px;
         }
         #d2{
-            left: 260px;
+            left: 200px;
         }
         #d3{
-            left: 520px;
+            left: 400px;
         }
         #d4{
-            top: 260px;
+            top: 200px;
         }
         #d5{
-            top: 260px;
-            left: 260px;
+            top: 200px;
+            left: 200px;
         }
         #d6{
-            top: 260px;
-            left: 520px;
+            top: 200px;
+            left: 400px;
         }
         #d7{
-            top: 520px;
+            top: 400px;
         }
         #d8{
-            left: 260px;
-            top: 520px;
+            left: 200px;
+            top: 400px;
         }
         /*这是预先给每个小方块按照顺序排好位置*/   
-    </style>
+        #button1{border: 0;width:120px;height:60px;border-radius: 5px;color: #fff;transition: 0.3s linear;font-family: KaiTi;font-size:20px;text-align: center;line-height: 60px;}
+		#button1:hover{opacity: 0.5;}
+		#button2{border: 0;width:120px;height:60px;border-radius: 5px;color: #fff;transition: 0.3s linear;font-family: KaiTi;font-size:20px;text-align: center;line-height: 60px;}
+		#button2:hover{opacity: 0.5;}
+		#button_wrap{left:85%;top:0;position:fixed}
+		 a, a:link, a:visited, a:focus, a:hover, a:active{
+  		text-decoration:none; 
+		}
