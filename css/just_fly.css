@@ -1,0 +1,48 @@
+  	.kuang{
+            background-image: linear-gradient(180deg,#faaf5e,#fed9b0);
+        }
+    * {
+      margin: 0;
+      padding: 0;
+    }
+ 
+    #game {
+      margin:0 auto;
+      width: 800px;
+      height: 600px;
+      background: url(../img/fly_back.gif);
+      position: relative;
+      overflow: hidden;
+    }
+ 
+    #bird {
+      width: 100px;
+      height: 77px;
+      background: url(../img/bird.png) -10px -8px no-repeat;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+    }
+     #button1{border: 0;width:120px;height:60px;border-radius: 5px;color: #fff;transition: 0.3s linear;font-family: KaiTi;font-size:20px;text-align: center;line-height: 60px;}
+		#button1:hover{opacity: 0.5;}
+		#button2{border: 0;width:120px;height:60px;border-radius: 5px;color: #fff;transition: 0.3s linear;font-family: KaiTi;font-size:20px;text-align: center;line-height: 60px;}
+		#button2:hover{opacity: 0.5;}
+		#button_wrap{left:85%;top:0;position:fixed}
+		 a, a:link, a:visited, a:focus, a:hover, a:active{
+  		text-decoration:none; 
+		}
+	#up{
+            font-size: 20px;
+            font-family: KaiTi;
+            text-align: center;
+            color: #764a05;
+        }
+        #transition{
+        	margin-left: 50px;
+        	position: fixed;
+        	font-size: 20px;
+        	line-height: 35px;
+        	width: 250px;
+        	font-family: Kaiti;
+        	color: #FFFFFF;
+        }
