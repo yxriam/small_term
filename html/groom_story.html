@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/story.css">
 </head>
 <body>
-	<audio  id="music" autoplay="autoplay" preload="auto" src="../audio/person.mp3"></audio>
+	<audio  id="music" autoplay="autoplay" preload="auto" src="../audio/person.mp3" loop="loop"></audio>
      <div class="timeline-container" id="timeline-1">
   <div class="timeline-header">
     <h2 class="timeline-header-title">马夫手札</h2>
@@ -85,12 +85,12 @@
     (function($) {
   $.fn.timeline = function() {
     var selectors = {
-      id: $(this),
-      item: $(this).find(".timeline-item"),
+      id: $(this),		//this指代selectors
+      item: $(this).find(".timeline-item"),		
       activeClass: "timeline-item-active",
       img: ".timeline-img"
     };
-    selectors.item.eq(0).addClass(selectors.activeClass);
+    selectors.item.eq(0).addClass(selectors.activeClass);		//第一个item先设置为active
     selectors.id.css(
       "background-image",
       "url(" +
@@ -103,14 +103,14 @@
     var itemLength = selectors.item.length;
     $(window).scroll(function() {
       var max, min;
-      var pos = $(this).scrollTop();
-      selectors.item.each(function(i) {
-        min = $(this).offset().top;
-        max = $(this).height() + $(this).offset().top;
+      var pos = $(this).scrollTop();		//当前滚轮的高度
+      selectors.item.each(function(i) {			//每一个item匹配function
+        min = $(this).offset().top;			//上边界
+        max = $(this).height() + $(this).offset().top;		//下边界
         var that = $(this);
-        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
-          selectors.item.removeClass(selectors.activeClass);
-          selectors.id.css(
+        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {		//倒数第二个item滑倒一半的时候切换最后一张的背景图，防止最后一张背景图无法显示
+          selectors.item.removeClass(selectors.activeClass);		//当前item移除active
+          selectors.id.css(					//下一个元素样式变成active样式
             "background-image",
             "url(" +
               selectors.item
@@ -119,8 +119,8 @@
                 .attr("src") +
               ")"
           );
-          selectors.item.last().addClass(selectors.activeClass);
-        } else if (pos <= max - 40 && pos >= min) {
+          selectors.item.last().addClass(selectors.activeClass);		//下一个元素添加activeclass
+        } else if (pos <= max - 40 && pos >= min) {			//在当前item底部向上-40px
           selectors.id.css(
             "background-image",
             "url(" +
@@ -128,9 +128,9 @@
                 .find(selectors.img)
                 .attr("src") +
               ")"
-          );
-          selectors.item.removeClass(selectors.activeClass);
-          $(this).addClass(selectors.activeClass);
+          );		//当前图片设置背景图
+          selectors.item.removeClass(selectors.activeClass);		//所有的都移除active
+          $(this).addClass(selectors.activeClass);		//当前的添加active
         }
       });
     });
